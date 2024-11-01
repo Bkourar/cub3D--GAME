@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:04:58 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 11:36:15 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:43:29 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,8 +155,10 @@ int		parsing_map(t_cub *cub, int len);
 int		go_to_check(char *str, t_texture *texture, int i);
 int		check_all_is_full(t_texture *texture);
 void	draw_the_textures(t_exec *exec, float angle, int *y, t_ray *ray);
+mlx_image_t	*ft_texutre11(t_exec *exec, char *path_texture);
 
 /*part2*/
+void	draw_an_image(t_exec *exec, mlx_image_t *img, int startx, int starty);
 void	read_images(t_exec *exec, char ind, char *name, int frmnb);
 float	adj_dimensions(t_exec *exec, int ind, int fl, int prs);
 void	draw_the_player(t_exec *exec, int var, int prs);

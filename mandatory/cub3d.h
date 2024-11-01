@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 09:34:37 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 11:37:40 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:42:41 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ typedef struct s_exec
 
 void		draw_the_textures(t_exec *exec, float angle, int *y, t_ray *ray);
 int32_t		get_pixel(uint8_t *pixels, int o);
-mlx_image_t	*ft_texture(t_exec *exec, char *path_texture);
+mlx_image_t	*ft_texutre11(t_exec *exec, char *path_texture);
 
 int		ft_check_walls(t_exec *exec, int ind);
 int		read_file(char **av, t_cub *cub, t_texture *texture);

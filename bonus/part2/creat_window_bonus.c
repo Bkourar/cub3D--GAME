@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:05:30 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 09:59:29 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:42:11 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	read_images(t_exec *exec, char ind, char *name, int frmnb)
 		src = ft_strjoin(src, ".png");
 		if (!src)
 			clean_and_exit(exec);
-		hld[i] = ft_texture(exec, src);
+		hld[i] = ft_texutre11(exec, src);
 	}
 	set_image_to_righ_place(exec, hld, ind);
 }

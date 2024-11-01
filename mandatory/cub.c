@@ -6,13 +6,13 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 09:23:04 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 10:55:42 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:42:11 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-mlx_image_t	*ft_texture(t_exec *exec, char *path_texture)
+mlx_image_t	*ft_texutre11(t_exec *exec, char *path_texture)
 {
 	mlx_texture_t	*texture;
 	mlx_image_t		*image;
@@ -37,11 +37,11 @@ int	start_cub(char **av)
 		return (-1);
 	if (creat_and_start_awindow(&exec) < 0)
 		return (gc_free_all(), -1);
-	exec.no = ft_texture(&exec, exec.text.no);
-	exec.so = ft_texture(&exec, exec.text.so);
-	exec.we = ft_texture(&exec, exec.text.we);
-	exec.ea = ft_texture(&exec, exec.text.ea);
-	exec.d = ft_texture(&exec, "./png/door.png");
+	exec.no = ft_texutre11(&exec, exec.text.no);
+	exec.so = ft_texutre11(&exec, exec.text.so);
+	exec.we = ft_texutre11(&exec, exec.text.we);
+	exec.ea = ft_texutre11(&exec, exec.text.ea);
+	exec.d = ft_texutre11(&exec, "./png/door.png");
 	set_player_info(&exec);
 	ray_casting(&exec);
 	mlx_loop_hook(exec.mlx, &catch_moves, &exec);

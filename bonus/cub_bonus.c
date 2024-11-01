@@ -6,13 +6,13 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:17:41 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 09:58:58 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:42:15 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-mlx_image_t	*ft_texture(t_exec *exec, char *path_texture)
+mlx_image_t	*ft_texutre11(t_exec *exec, char *path_texture)
 {
 	mlx_texture_t	*texture;
 	mlx_image_t		*image;
@@ -34,11 +34,11 @@ static void	fill_bonus_info(t_exec *exec)
 	exec->ms.sensitivity = 0.1 / 30;
 	exec->ms.prevx = exec->info.win_wid / 2;
 	exec->ms.prevy = exec->info.win_hei / 2;
-	exec->no = ft_texture(exec, exec->text.no);
-	exec->so = ft_texture(exec, exec->text.so);
-	exec->we = ft_texture(exec, exec->text.we);
-	exec->ea = ft_texture(exec, exec->text.ea);
-	exec->d = ft_texture(exec, "./png/door.png");
+	exec->no = ft_texutre11(exec, exec->text.no);
+	exec->so = ft_texutre11(exec, exec->text.so);
+	exec->we = ft_texutre11(exec, exec->text.we);
+	exec->ea = ft_texutre11(exec, exec->text.ea);
+	exec->d = ft_texutre11(exec, "./png/door.png");
 	exec->wp.shtnb = 12;
 	exec->wp.rldnb = 5;
 	exec->wp.blt = 3;
