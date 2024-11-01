@@ -2,7 +2,7 @@
 *.d
 
 # Object files
-*.o
+#*.o
 *.ko
 *.obj
 *.elf
@@ -60,6 +60,7 @@ lib/glfw/
 
 # Special shader files
 mlx_*_shader.c
+#build/
 main.c
 test
 
