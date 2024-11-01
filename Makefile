@@ -51,7 +51,7 @@ $(BONUS) : $(OBJB)
 
 clean :
 	@make -C $(LIBFT) $@
-	@make -C $(MLX) $@
+#	@make -C $(MLX) $@
 	@rm -f $(OBJ)
 	@rm -f $(OBJB)
 
