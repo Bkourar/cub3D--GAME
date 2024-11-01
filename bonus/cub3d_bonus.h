@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:04:58 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 10:09:40 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:36:15 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,7 @@ int		check_all_is_full(t_texture *texture);
 void	draw_the_textures(t_exec *exec, float angle, int *y, t_ray *ray);
 
 /*part2*/
+void	read_images(t_exec *exec, char ind, char *name, int frmnb);
 float	adj_dimensions(t_exec *exec, int ind, int fl, int prs);
 void	draw_the_player(t_exec *exec, int var, int prs);
 int		door_or_wall(t_ray *ray, char c);
