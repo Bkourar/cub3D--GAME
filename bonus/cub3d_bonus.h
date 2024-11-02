@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:04:58 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 11:43:29 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/02 18:03:44 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,9 +138,15 @@ typedef struct s_exec
 	mlx_image_t	*so;
 	mlx_image_t	*ea;
 	mlx_image_t	*d;
+	mlx_image_t *odll;
+	mlx_image_t *odlr;
+	mlx_image_t *odrl;
+	mlx_image_t *odrr;
 	int			i;
 	int			frst;
 }	t_exec;
+
+typedef mlx_image_t	t_mlx ;
 
 /*part1*/
 int		switch_rgb_hex(int color[3], int a);
@@ -155,7 +161,7 @@ int		parsing_map(t_cub *cub, int len);
 int		go_to_check(char *str, t_texture *texture, int i);
 int		check_all_is_full(t_texture *texture);
 void	draw_the_textures(t_exec *exec, float angle, int *y, t_ray *ray);
-mlx_image_t	*ft_texutre11(t_exec *exec, char *path_texture);
+t_mlx	*ft_texutre11(t_exec *exec, char *path_texture);
 
 /*part2*/
 void	draw_an_image(t_exec *exec, mlx_image_t *img, int startx, int starty);

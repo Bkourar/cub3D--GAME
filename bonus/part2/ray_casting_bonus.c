@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:01:31 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/10/29 10:08:03 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/02 14:10:53 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ void	find_vertical_inter(float angle, t_exec *exec, t_ray *ray, char b)
 	while (cur_psy > 0 && cur_psx > 0 && cur_psx < exec->info.map_wid
 		&& cur_psy < exec->info.map_hei)
 	{
-		if (exec->info.map[(int)floor(((cur_psy) / PIXELS))]
-			[(int)floor(((cur_psx + b) / PIXELS))] == '1')
+		if (!door_or_wall(ray, exec->info.map[(int)floor(((cur_psy) / PIXELS))]
+				[(int)floor(((cur_psx + b) / PIXELS))]))
 			break ;
 		cur_psx += xinc;
 		cur_psy += yinc;

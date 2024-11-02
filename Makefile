@@ -2,7 +2,7 @@ NAME=cub3D
 BONUS=cub3D_bonus
 CC=cc
 S= -fsanitize=address -g
-FLAGS= -Wall -Wextra -Werror $(S)
+FLAGS= -Wall -Wextra -Werror
 PART1=  ./mandatory/part1/read_file.c ./mandatory/part1/utils.c
 PART2=	./mandatory/part2/utils1.c ./mandatory/part2/ray_casting_utils.c ./mandatory/part2/ray_casting.c\
 		./mandatory/part2/creat_window.c\
@@ -31,14 +31,19 @@ all : mlx libf  $(NAME)
 
 bonus : mlx libf $(BONUS)
 
-mlx :
+mlx : $(MLX) $(MLX)/libmlx42.a
+
+$(MLX)/libmlx42.a :
 	make -C $(MLX)
+
+$(MLX) :
+	cmake -S ./MLX42 -B $(MLX)
 
 libf :
 	@make -C $(LIBFT)
 
 $(NAME) : $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) $(LIBFT)/libft.a $(FRAMEWORK) $(MLX)/libmlx42.a -o $@
+	$(CC) $(FLAGS) $(OBJ) $(LIBFT)/libft.a $(MLX)/libmlx42.a $(FRAMEWORK) -o $@
 
 $(BONUS) : $(OBJB)
 	$(CC) $(FLAGS) $(OBJB) $(LIBFT)/libft.a $(FRAMEWORK) $(MLX)/libmlx42.a -o $@
@@ -51,15 +56,15 @@ $(BONUS) : $(OBJB)
 
 clean :
 	@make -C $(LIBFT) $@
-#	@make -C $(MLX) $@
 	@rm -f $(OBJ)
 	@rm -f $(OBJB)
+	@make -C $(MLX) $@
 
 fclean : clean
 	@make -C $(LIBFT) $@
-#	@make -C $(MLX) $@
 	@rm -f $(NAME)
 	@rm -f $(BONUS)
+	@rm -rf $(MLX)
 
 re : fclean all
 

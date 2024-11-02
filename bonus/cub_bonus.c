@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:17:41 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 11:42:15 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/02 18:04:21 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ static void	fill_bonus_info(t_exec *exec)
 	exec->we = ft_texutre11(exec, exec->text.we);
 	exec->ea = ft_texutre11(exec, exec->text.ea);
 	exec->d = ft_texutre11(exec, "./png/door.png");
+	exec->odll = ft_texutre11(exec, "./png/openll.png");
+	exec->odrr = ft_texutre11(exec, "./png/openrr.png");
+	exec->odlr = ft_texutre11(exec, "./png/openlr.png");
+	exec->odrl = ft_texutre11(exec, "./png/openrl.png");
 	exec->wp.shtnb = 12;
 	exec->wp.rldnb = 5;
 	exec->wp.blt = 3;
