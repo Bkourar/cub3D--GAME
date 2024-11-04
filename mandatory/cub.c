@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 09:23:04 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 11:42:11 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/04 09:44:58 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ int	check_extention(char *str)
 	return (0);
 }
 
+void f(void){system("leaks cub3D");}
+
 int	main(int ac, char **av)
 {
+	atexit(f);
 	if (ac != 2 || ac > 3)
 		return (write(0, "error\ninvalid argument\n", 23), 1);
 	if (check_extention(av[1]))

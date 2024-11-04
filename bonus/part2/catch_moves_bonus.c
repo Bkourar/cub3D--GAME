@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 14:22:43 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/02 14:10:28 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/04 09:30:10 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	draw_the_walls22(int rx, t_exec *exec, float angle, t_ray *ray)
 	while (y < clg)
 		mlx_put_pixel(exec->wind_image, rx, y++, exec->info.clg_cl);
 	draw_the_textures(exec, angle, &y, ray);
-	while (y <= (int)exec->info.win_hei)
+	while (y < (int)exec->info.win_hei)
 		mlx_put_pixel(exec->wind_image, rx, y++, exec->info.flr_cl);
 }
 

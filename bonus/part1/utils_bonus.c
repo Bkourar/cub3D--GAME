@@ -6,62 +6,11 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 13:20:52 by ael-mejh          #+#    #+#             */
-/*   Updated: 2024/11/02 18:41:22 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/04 13:10:49 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d_bonus.h"
-
-static void draw_opened_door(t_exec *exec, int *color, t_ray *ray, float angle)
-{
-	int	prev;
-	char up;
-	char right;
-
-	it_is_up_or_down(exec->ply.rotangle, &up);
-	it_is_left_or_right(exec->ply.rotangle, &right);
-	prev = *color;
-	if (ray->hv == 0 && ((angle >= 0 && angle < M_PI_2)
-			|| (angle >= 3 * M_PI_2 && angle < 2 * M_PI)))
-	{
-		if (exec->info.old_map[(int)floor((ray->dy - 1) / PIXELS)][(int)floor((ray->dx) / PIXELS)] == 'D')
-		{
-			// if (up)
-				*color = get_pixel(exec->odlr->pixels, ray->o);
-			// else if (printf("h\n"))
-			// 	*color = get_pixel(exec->odrl->pixels, ray->o);
-		}
-	}
-	else if (ray->hv == 0 && angle >= M_PI_2 && angle < 3 * M_PI_2)
-	{
-		if (exec->info.old_map[(int)floor(ray->dy / PIXELS)][(int)floor((ray->dx - 1) / PIXELS)] == 'D')
-			*color = get_pixel(exec->odrr->pixels, ray->o);
-	}
-	else if (ray->hv == 1 && angle >= 0 && angle < M_PI)
-	{
-		if (exec->info.old_map[(int)floor(ray->dy / PIXELS)][(int)floor((ray->dx - 1) / PIXELS)] == 'D')
-		{
-			if (up)
-				*color = get_pixel(exec->odll->pixels, ray->o);
-			else
-				*color = get_pixel(exec->odrl->pixels, ray->o);
-		}
-			
-	}
-	else if (ray->hv == 1 && angle >= M_PI && angle < 2 * M_PI)
-	{
-		if (exec->info.old_map[(int)floor((ray->dy - 1) / PIXELS)][(int)floor((ray->dx) / PIXELS)] == 'D')
-		{
-			if (up && printf("here\n"))
-				*color = get_pixel(exec->odll->pixels, ray->o);
-			else
-				*color = get_pixel(exec->odrl->pixels, ray->o);
-
-		}
-	}
-	if (*color == 0)
-		*color = prev;
-}
 
 static void	set_color_value(t_exec *exec, float angle, int *color, t_ray *ray)
 {
@@ -75,7 +24,8 @@ static void	set_color_value(t_exec *exec, float angle, int *color, t_ray *ray)
 		*color = get_pixel(exec->so->pixels, ray->o);
 	else if (ray->hv == 1 && angle >= M_PI && angle < 2 * M_PI)
 		*color = get_pixel(exec->no->pixels, ray->o);
-	draw_opened_door(exec, color, ray, angle);
+	if (exec->info.old_map[(int)floor(exec->ply.py / PIXELS)][(int)floor(exec->ply.px / PIXELS)] == 'D')
+		draw_opened_door(exec, color, ray);
 	if (ray->d == 2)
 		*color = get_pixel(exec->d->pixels, ray->o);
 }

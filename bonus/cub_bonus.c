@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:17:41 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/02 18:04:21 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/04 11:41:29 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static void	fill_bonus_info(t_exec *exec)
 	exec->odrr = ft_texutre11(exec, "./png/openrr.png");
 	exec->odlr = ft_texutre11(exec, "./png/openlr.png");
 	exec->odrl = ft_texutre11(exec, "./png/openrl.png");
+	exec->dbh = ft_texutre11(exec, "./png/db.png");
 	exec->wp.shtnb = 12;
 	exec->wp.rldnb = 5;
 	exec->wp.blt = 3;
@@ -82,8 +83,11 @@ int	check_extention(char *str)
 	return (0);
 }
 
+void f(void){system("leaks cub3D_bonus");}
+
 int	main(int ac, char **av)
 {
+	atexit(f);
 	if (ac != 2 || ac > 3)
 		return (write(0, "error\ninvalid argument\n", 23), 1);
 	if (check_extention(av[1]))

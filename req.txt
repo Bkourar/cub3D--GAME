@@ -1,0 +1,6 @@
+
+Ahmed 
+
+- adjust colors in mandatory part
+- norminette in mandatory
+leaks when quit with q or esc (mandatory and bonus)

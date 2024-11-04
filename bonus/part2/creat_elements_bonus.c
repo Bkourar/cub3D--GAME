@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:07:08 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 09:54:16 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/04 10:01:57 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw_an_image(t_exec *exec, mlx_image_t *img, int startx, int starty)
 				&& index + 4 < ((img->height * img->width) + img->width) * 4)
 				color = (int)ft_pixel(img->pixels[index], img->pixels[index
 						+ 1], img->pixels[index + 2], img->pixels[index + 3]);
-			if (color != 0)
+			if (color != 0 && (startx + x) < exec->info.win_wid && (starty + y) < exec->info.win_hei)
 				mlx_put_pixel(exec->wind_image, startx + x, starty + y, color);
 		}
 	}
@@ -49,8 +49,8 @@ static void	draw_color(t_exec *exec, unsigned int y, unsigned int x, int var)
 		xx = 0;
 		while (xx < var)
 		{
-			if (xx >= 0 && x + xx <= exec->info.win_wid
-				&& y + yy <= exec->info.win_hei)
+			if (xx >= 0 && x + xx < exec->info.win_wid
+				&& y + yy < exec->info.win_hei)
 				mlx_put_pixel(exec->wind_image, x + xx, y + yy, exec->mm.color);
 			xx++;
 		}

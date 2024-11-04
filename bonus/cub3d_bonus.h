@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:04:58 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/02 18:03:44 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/04 13:10:41 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ typedef struct s_exec
 	mlx_image_t *odlr;
 	mlx_image_t *odrl;
 	mlx_image_t *odrr;
+	mlx_image_t *dbh;
 	int			i;
 	int			frst;
 }	t_exec;
@@ -202,5 +203,8 @@ void	mouse_fun(void *ptr);
 void	fill_xstart_end(t_exec *exec, int *start, int *end, float diff);
 void	fill_ystart_end(t_exec *exec, int *start, int *end, float diff);
 float	ft_abs(float nm);
+void	draw_opened_door(t_exec *exec, int *color, t_ray *ray);
+
+/*to remove*/
 
 #endif
