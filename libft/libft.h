@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:09:28 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 11:07:52 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:36:12 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ typedef struct s_garb
 	struct s_garb	*next;
 }	t_garb;
 
-void	*gc_malloc(size_t size);
+void	*gc_malloc(int size);
 t_garb	**get_last_node(void);
 void	gc_free_all(void);
 char	*ft_strdup1(const char *s1);

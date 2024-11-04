@@ -6,18 +6,16 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:03:28 by ael-mejh          #+#    #+#             */
-/*   Updated: 2024/11/01 11:12:21 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:40:20 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_garb	**get_last_node(void)
+t_garb **get_last_node()
 {
-	static t_garb	*node;
-
-	node = NULL;
-	return (&node);
+    static t_garb *node = NULL;
+    return &node;
 }
 
 void	gc_free_all(void)
@@ -38,7 +36,7 @@ void	gc_free_all(void)
 	head = NULL;
 }
 
-void	*gc_malloc(size_t size)
+void	*gc_malloc(int size)
 {
 	t_garb	**head;
 	t_garb	*node;

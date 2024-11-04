@@ -59,13 +59,17 @@ clean :
 	@make -C $(LIBFT) $@
 	@rm -f $(OBJ)
 	@rm -f $(OBJB)
-	@make -C $(MLX) $@
+#	@if [ -d "$(OBJ_DIR)" ]; then \
+		@make -C $(MLX) $@ ; \
+	fi
 
 fclean : clean
 	@make -C $(LIBFT) $@
 	@rm -f $(NAME)
 	@rm -f $(BONUS)
-	@rm -rf $(MLX)
+#	@rm -rf $(MLX)
+
+mlx_clean : $(MLX)
 
 re : fclean all
 
