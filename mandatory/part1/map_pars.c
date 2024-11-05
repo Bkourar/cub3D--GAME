@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_pars.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejh <ael-mejh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 18:29:11 by ael-mejh          #+#    #+#             */
-/*   Updated: 2024/11/05 13:58:54 by ael-mejh         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:57:30 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	check_valid_map(char **map, int i, int count)
 	return (0);
 }
 
-static int	check_map(char **map, int *i, size_t *j, int *p)
+static int	check_map(char **map, int *i, size_t *j)
 {
 	int	k;
 
@@ -58,7 +58,6 @@ static int	check_map(char **map, int *i, size_t *j, int *p)
 			(*j)++;
 		}
 		(*i)++;
-		*p = *i;
 		return (2);
 	}
 	return (0);
@@ -81,18 +80,16 @@ int	parsing_map(t_cub *cub, int len)
 {
 	size_t	j;
 	int		i;
-	int		p;
 	int		res;
 
 	i = 0;
-	p = 0;
 	cub->map1 = ft_split1(cub->map, '\n', len);
 	if (check_valid_map(cub->map1, 0, 0))
 		return (1);
 	while (cub->map1[i])
 	{
 		j = 0;
-		res = check_map(cub->map1, &i, &j, &p);
+		res = check_map(cub->map1, &i, &j);
 		if (res == 2)
 			continue ;
 		else if (res == 1)

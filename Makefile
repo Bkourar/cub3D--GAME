@@ -60,8 +60,8 @@ clean :
 	@make -C $(LIBFT) $@
 	@rm -f $(OBJ)
 	@rm -f $(OBJB)
-#	@if [ -d "$(OBJ_DIR)" ]; then \
-		@make -C $(MLX) $@ ; \
+#	@if [ -d "$(MLX)" ]; then \
+		make -C $(MLX) $@ ; \
 	fi
 
 fclean : clean
@@ -74,4 +74,4 @@ mlx_clean : $(MLX)
 
 re : fclean all
 
-.PHONY : clean
+.PHONY : clean libt
