@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 09:23:04 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/04 09:44:58 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/05 10:14:22 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ mlx_image_t	*ft_texutre11(t_exec *exec, char *path_texture)
 	texture = mlx_load_png(path_texture);
 	if (!texture)
 	{
-		write(2, "Error\nIn valid path", 19);
-		printf("'%s'", path_texture);
+		write(2, "Error: invalid path", 20);
+		ft_putendl_fd(path_texture, 2);
 		clean_and_exit(exec);
 	}
 	image = mlx_texture_to_image(exec->mlx, texture);

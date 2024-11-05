@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:04:58 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/04 13:10:41 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:54:09 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,6 @@ typedef struct s_exec
 	mlx_image_t *odlr;
 	mlx_image_t *odrl;
 	mlx_image_t *odrr;
-	mlx_image_t *dbh;
 	int			i;
 	int			frst;
 }	t_exec;
