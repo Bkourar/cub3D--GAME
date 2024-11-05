@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejh <ael-mejh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 09:34:37 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/05 13:49:44 by ael-mejh         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:09:34 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define SPEED 100
 # define VIEW_SPEED 10
 
-typedef mlx_image_t t_img;
+typedef mlx_image_t	t_img;
 
 typedef struct s_cub
 {

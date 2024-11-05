@@ -6,16 +6,22 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:03:28 by ael-mejh          #+#    #+#             */
-/*   Updated: 2024/11/04 14:40:20 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:19:11 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_garb **get_last_node()
+t_garb	**get_last_node(void)
 {
-    static t_garb *node = NULL;
-    return &node;
+	static int		i;
+	static t_garb	*node;
+
+	if (i == 0)
+		node = NULL;
+	if (!i)
+		i++;
+	return (&node);
 }
 
 void	gc_free_all(void)

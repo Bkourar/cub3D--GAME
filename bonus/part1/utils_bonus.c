@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejh <ael-mejh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 13:20:52 by ael-mejh          #+#    #+#             */
-/*   Updated: 2024/11/05 14:04:56 by ael-mejh         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:10:30 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static void	set_color_value(t_exec *exec, float angle, int *color, t_ray *ray)
 		*color = get_pixel(exec->so->pixels, ray->o);
 	else if (ray->hv == 1 && angle >= M_PI && angle < 2 * M_PI)
 		*color = get_pixel(exec->no->pixels, ray->o);
-	if (exec->info.old_map[(int)floor(exec->ply.py / PIXELS)][(int)floor(exec->ply.px / PIXELS)] == 'D')
+	if (exec->info.old_map[(int)floor(exec->ply.py / PIXELS)]
+		[(int)floor(exec->ply.px / PIXELS)] == 'D')
 		draw_opened_door(exec, color, ray);
 	if (ray->d == 2)
 		*color = get_pixel(exec->d->pixels, ray->o);

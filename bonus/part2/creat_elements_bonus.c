@@ -6,7 +6,7 @@
 /*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:07:08 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/04 10:01:57 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:10:13 by anqabbal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	draw_an_image(t_exec *exec, mlx_image_t *img, int startx, int starty)
 				&& index + 4 < ((img->height * img->width) + img->width) * 4)
 				color = (int)ft_pixel(img->pixels[index], img->pixels[index
 						+ 1], img->pixels[index + 2], img->pixels[index + 3]);
-			if (color != 0 && (startx + x) < exec->info.win_wid && (starty + y) < exec->info.win_hei)
+			if (color != 0 && (startx + x)
+				< exec->info.win_wid && (starty + y) < exec->info.win_hei)
 				mlx_put_pixel(exec->wind_image, startx + x, starty + y, color);
 		}
 	}
