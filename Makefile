@@ -3,7 +3,8 @@ BONUS=cub3D_bonus
 CC=cc
 S= -fsanitize=address -g
 FLAGS= -Wall -Wextra -Werror
-PART1=  ./mandatory/part1/read_file.c ./mandatory/part1/utils.c
+PART1=  ./mandatory/part1/read_file.c ./mandatory/part1/check_textures.c ./mandatory/part1/map_pars.c\
+		./mandatory/part1/pars_color.c ./mandatory/part1/utils.c
 PART2=	./mandatory/part2/utils1.c ./mandatory/part2/ray_casting_utils.c ./mandatory/part2/ray_casting.c\
 		./mandatory/part2/creat_window.c\
 		./mandatory/part2/init_structs.c ./mandatory/part2/catch_moves.c\

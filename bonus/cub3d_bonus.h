@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ael-mejh <ael-mejh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:04:58 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/04 15:54:09 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:04:23 by ael-mejh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,10 +138,10 @@ typedef struct s_exec
 	mlx_image_t	*so;
 	mlx_image_t	*ea;
 	mlx_image_t	*d;
-	mlx_image_t *odll;
-	mlx_image_t *odlr;
-	mlx_image_t *odrl;
-	mlx_image_t *odrr;
+	mlx_image_t	*odll;
+	mlx_image_t	*odlr;
+	mlx_image_t	*odrl;
+	mlx_image_t	*odrr;
 	int			i;
 	int			frst;
 }	t_exec;

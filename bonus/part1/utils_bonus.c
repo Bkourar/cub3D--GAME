@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ael-mejh <ael-mejh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 13:20:52 by ael-mejh          #+#    #+#             */
-/*   Updated: 2024/11/04 13:10:49 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:04:56 by ael-mejh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	set_color_value(t_exec *exec, float angle, int *color, t_ray *ray)
 {
-
 	if (ray->hv == 0 && ((angle >= 0 && angle < M_PI_2)
 			|| (angle >= 3 * M_PI_2 && angle < 2 * M_PI)))
 		*color = get_pixel(exec->we->pixels, ray->o);

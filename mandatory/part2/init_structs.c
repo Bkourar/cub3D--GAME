@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_structs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ael-mejh <ael-mejh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:14:44 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/04 09:39:04 by anqabbal         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:34:10 by ael-mejh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int	init_info_struct(t_info *info, t_cub *cub, t_texture *text)
 	info->map = text->map;
 	info->map_wid = cub->len * PIXELS;
 	info->map_hei = cub->len_h * PIXELS;
-	info->flr_cl = 0x04ed93ff;
-	info->clg_cl = 0x00190fff;
+	info->flr_cl = text->f_color;
+	info->clg_cl = text->c_color;
 	return (0);
 }
 

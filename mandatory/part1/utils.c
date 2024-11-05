@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anqabbal <anqabbal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ael-mejh <ael-mejh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 09:44:08 by anqabbal          #+#    #+#             */
-/*   Updated: 2024/11/01 09:45:19 by anqabbal         ###   ########.fr       */
+/*   Created: 2024/10/27 13:20:52 by ael-mejh          #+#    #+#             */
+/*   Updated: 2024/11/05 13:43:49 by ael-mejh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,19 @@ void	draw_the_textures(t_exec *exec, float angle, int *y, t_ray *ray)
 			set_color_value(exec, angle, &color, ray);
 		mlx_put_pixel(exec->wind_image, ray->x, (*y)++, color);
 	}
+}
+
+int	switch_rgb_hex(int color[3], int a)
+{
+	return (color[0] << 24 | color[1] << 16 | color[2] << 8 | a);
+}
+
+int	is_invalid(char **map, int i, size_t j)
+{
+	return (
+		((i == 0 || j == 0) && (map[i][j] != '1')) ||
+		(map[i][j + 1] == ' ' || map[i][j - 1] == ' ' || map[i][j + 1] == '\0')
+		|| ((map[i - 1][j] == ' ' || map[i - 1][j] == '\0')) ||
+		(map[i + 1] == NULL
+		|| (map[i + 1][j] == ' ' || map[i + 1][j] == '\0')));
 }
