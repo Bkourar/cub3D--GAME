@@ -5,7 +5,7 @@
 #define TZ 60
 #define FOV 60
 //map 2d
-// #define WIDTH 480
+// #define WIDETH 1980
 // #define HIGHT 352
 //map 3d
 #define WIDTH 1280
@@ -15,12 +15,16 @@
 #define BLUE 0x0000BBAA
 #define YL 0xFFFF00AA
 #define RED 0xFF000000
+#define IMG "photo.png"
 
-#include <MLX42/include/MLX42/MLX42.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <limits.h>
+#include <math.h>
+#include <fcntl.h>
+#include "MLX42/include/MLX42/MLX42.h"
+#include "get_next_line/get_next_line.h"
+
 typedef struct	s_crd
 {
 	double	x;
@@ -29,10 +33,10 @@ typedef struct	s_crd
 
 typedef struct	plyer
 {
-	t_crd	p;
 	double	rot;
 	char	dr_x;
 	char	dr_y;
+	t_crd	p;
 }	t_ply;
 
 
@@ -44,11 +48,11 @@ typedef struct	s_line
 
 typedef struct	rays
 {
-	t_crd	r;
 	double	rot;
 	double	ds;
 	char	dr_x;
 	char	dr_y;
+	t_crd	r;
 }	t_rys;
 
 typedef struct	information
@@ -66,8 +70,8 @@ typedef struct	information
 	t_rys		ra[WIDTH];
 }				t_inf;
 
-
-void	routine(void *arg);
+void	draw_ma__p_p(t_inf *dr);
+void	rou_tine(void *arg);
 double	deg2rad(double deg);
 double	rad2deg(double rad);
 bool	rot_left(t_inf *s);
@@ -87,8 +91,27 @@ void	direct(double ang, t_rys *orient, t_ply *player);
 void	dda(double x0, double y0, double x1, double y1, t_inf *s);
 void	rendereding(t_inf *s);
 void	draw_map_p(t_inf *dr);
+void	draw_line(t_inf *data, t_line ln);
 // double	hi_section(t_inf *s, t_crd *d);
 // double	vi_section(t_inf *s, t_crd *d);
 // void	draw_ray(t_inf *d);
+//-------------------------------------------------parsing----------------------------------
+typedef struct s_map
+{
+	char *s;
+	char **array;
+	int count;
+	struct s_map *next;
+} t_map;
+
+typedef struct s_buff
+{
+	char **array;
+	int count;
+} t_buff;
+
+int ft_strncmp(char *s1, char *s2, int n);
+void ft_error(char *str1, char *str2, char *str3);
+t_buff *ft_parsing(int ac, char **av);
 
 # endif

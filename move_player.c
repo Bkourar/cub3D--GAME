@@ -8,10 +8,13 @@ bool	up(t_inf *s)
 	
 	x = s->pl.p.x + (3 * cos(s->pl.rot));
 	y = s->pl.p.y + (3 * sin(s->pl.rot));
-	if (x <= 0 || y <= 0 || x > WIDTH || y > HIGHT)
+	if (x <= 0 || y <= 0 || x > s->w_w || y > s->h_h)
 		return (false);
 	if (s->plan[(int)y / PX][(int)x / PX] == '1')
+	{
+		printf("wall hit\n");
 		return (false);
+	}
 	s->pl.p.x = x;
 	s->pl.p.y = y;
 	return (true);
@@ -24,7 +27,7 @@ bool	dn(t_inf *s)
 
 	x = s->pl.p.x - (3 * cos(s->pl.rot));
 	y = s->pl.p.y - (3 * sin(s->pl.rot));
-	if (x <= 0 || y <= 0 || x > WIDTH || y > HIGHT)
+	if (x <= 0 || y <= 0 || x > s->w_w || y > s->h_h)
 		return (false);
 	if (s->plan[(int)y / PX][(int)x / PX] == '1')
 		return (false);
@@ -40,7 +43,7 @@ bool	lt(t_inf *s)
 
 	x = s->pl.p.x + (3 * sin(s->pl.rot));
 	y = s->pl.p.y - (3 * cos(s->pl.rot));
-	if (x <= 0 || y <= 0 || x > WIDTH || y > HIGHT)
+	if (x <= 0 || y <= 0 || x > s->w_w || y > s->h_h)
 		return (false);
 	if (s->plan[(int)y / PX][(int)x / PX] == '1')
 		return (false);
@@ -56,7 +59,7 @@ bool	rt(t_inf *s)
 	
 	x = s->pl.p.x - (3 * sin(s->pl.rot));
 	y = s->pl.p.y + (3 * cos(s->pl.rot));
-	if (x <= 0 || y <= 0 || x > WIDTH || y > HIGHT)
+	if (x <= 0 || y <= 0 || x > s->w_w || y > s->h_h)
 		return (false);
 	if (s->plan[(int)y / PX][(int)x / PX] == '1')
 		return (false);

@@ -61,8 +61,71 @@ void	raycasting(t_inf *s)
 	}
 }
 
+// void	draw_wa(t_inf *d, int x, int y)
+// {
+// 	int	i;
+// 	int	j;
+
+// 	j = 0;
+// 	while (j < PX)
+// 	{
+// 		i = 0;
+// 		while (i < PX)
+// 		{
+// 			// if (i + x * PX < 0 || j + y * PX < 0 || i + x * PX >  d->x || j + y * PX > d->y)
+// 			// 	return ;
+// 			mlx_put_pixel(d->im, i + x * PX, j + y * PX, (uint32_t)BLACK);
+// 			i++;
+// 		}
+// 		j++;
+// 	}
+// }
+
+// void	draw_fl(t_inf *d, int x, int y)
+// {
+// 	int	i;
+// 	int	j;
+
+// 	if (x < 0 || y < 0 || x > d->w_w || y > d->h_h)
+// 		return ;
+// 	j = 0;
+// 	while (j < PX)
+// 	{
+// 		i = 0;
+// 		while (i < PX)
+// 		{
+// 			// if (i + x * PX < 0 || j + y * PX < 0 || i + x * PX >  d->x || j + y * PX > d->y)
+// 			// 	return ;
+// 			mlx_put_pixel(d->im, i + x * PX, j + y * PX, (uint32_t)WHITE);
+// 			i++;
+// 		}
+// 		j++;
+// 	}
+// }
+
+// void	draw_ma__p_p(t_inf *dr)
+// {
+// 	int	i;
+// 	int	j;
+
+// 	i = -1;
+// 	while (dr->plan[++i])
+// 	{
+// 		j = 0;
+// 		while (dr->plan[i][j])
+// 		{
+// 			if (dr->plan[i][j] == '1')
+// 				draw_wa(dr, j, i);
+// 			else
+// 				draw_fl(dr, j, i);
+// 			j++;
+// 		}
+// 	}
+// }
+
 static void	moveing(t_inf *s)
 {
+	t_line l;
 	bool mv = false;
 	if (mlx_is_key_down(s->mlx, MLX_KEY_RIGHT))
 		mv = rot_right(s);
@@ -82,12 +145,20 @@ static void	moveing(t_inf *s)
 	{
 		raycasting(s);
 		rendereding(s);
+		// draw_ma__p_p(s);
+		// for (int i=0; i < 60 ; i++) {
+		// 	l.start.x = s->pl.p.x;
+		// 	l.start.y = s->pl.p.y;
+		// 	l.end.x = l.start.x + 20 * cos(s->ra[i].rot); 
+		// 	l.end.y =  l.start.x + 20 * sin(s->ra[i].rot);
+		// 	draw_line(s, l);
+		// }
 	}
 }
 
-void	routine(void *arg)
+void	rou_tine(void *arg)
 {
-	t_inf	*s;
+	t_inf	*s;	
 	s = (t_inf *)arg;
 	moveing(s);
 	// 	raycasting(s);

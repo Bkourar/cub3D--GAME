@@ -68,7 +68,7 @@ void	greater_than_one(t_inf *data, t_crd start, t_crd end)
 			start.y += sign.y;
 			d_param += (2 * dy) - (2 * dx);
 		}
-		// if (start.y <= 0 || start.x <= 0 || start.y > data->y || start.x > data->x)
+		// if (start.y < 0 || start.x < 0 || start.y > data->y || start.x > data->x)
 		// 	return ;
 		mlx_put_pixel(data->im, start.y, start.x, (uint32_t)YL);
 	}
