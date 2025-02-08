@@ -6,7 +6,7 @@ libft/ft_strncmp.c libft/ft_error.c parsing_cub/ft_parsing.c
 
 OBJS = $(SRCS:.c=.o)
 
-CFLAGS = #-fsanitize=address -g
+CFLAGS = #-Wall -Wextra -Werror
 
 MLX42 = MLX42/build/libmlx42.a -Iinclude -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/"
 
@@ -19,11 +19,11 @@ GREEN = \033[0;32m
 
 all 			: $(NAME)
 $(NAME)			: $(OBJS)
-	$(CC) $(MLX42) $(OBJS) -o $(NAME) #-fsanitize=address -g
+	$(CC) $(MLX42) $(OBJS) -o $(NAME) -g -fsanitize=address
 	@echo "$(GREEN)make cub"
 
 %.o : %.c recast.h get_next_line/get_next_line.h
-	$(CC) $(CFLAGS) -c $< -o $@ #-fsanitize=address -g
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 fclean : clean
 	@$(RM) $(NAME) 

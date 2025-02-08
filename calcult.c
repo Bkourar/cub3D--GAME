@@ -52,6 +52,7 @@ t_crd	v_ins(t_inf *s, double check, int i)
 	return (cor.x = INT_MAX, cor.y = INT_MAX, cor);
 }
 
+
 void	set_distance(t_rys *r, t_crd h, t_crd v, t_ply b)
 {
 	double	dh;
@@ -63,10 +64,12 @@ void	set_distance(t_rys *r, t_crd h, t_crd v, t_ply b)
 	{
 		r->r = h;
 		r->ds = fabs(dh * cos(b.rot - r->rot));
+		r->sens = true;
 	}
 	else if (dv < dh)
 	{
 		r->r = v;
 		r->ds = fabs(dv * cos(b.rot - r->rot));
+		r->sens = false;
 	}
 }

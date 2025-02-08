@@ -125,7 +125,7 @@ void	raycasting(t_inf *s)
 
 static void	moveing(t_inf *s)
 {
-	t_line l;
+	// t_line l;
 	bool mv = false;
 	if (mlx_is_key_down(s->mlx, MLX_KEY_RIGHT))
 		mv = rot_right(s);
@@ -144,15 +144,7 @@ static void	moveing(t_inf *s)
 	if (mv)
 	{
 		raycasting(s);
-		rendereding(s);
-		// draw_ma__p_p(s);
-		// for (int i=0; i < 60 ; i++) {
-		// 	l.start.x = s->pl.p.x;
-		// 	l.start.y = s->pl.p.y;
-		// 	l.end.x = l.start.x + 20 * cos(s->ra[i].rot); 
-		// 	l.end.y =  l.start.x + 20 * sin(s->ra[i].rot);
-		// 	draw_line(s, l);
-		// }
+		rendereding(s, 0);
 	}
 }
 

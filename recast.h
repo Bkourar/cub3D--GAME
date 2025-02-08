@@ -52,13 +52,32 @@ typedef struct	rays
 	double	ds;
 	char	dr_x;
 	char	dr_y;
+	bool	sens;
 	t_crd	r;
 }	t_rys;
+
+// typedef struct	information
+// {
+// 	float		w_w;
+// 	float		h_h;
+// 	char		**plan;
+// 	void		*wi;
+// 	void		*wall;
+// 	void		*floor;
+// 	void		*plr;
+// 	mlx_t		*mlx;
+// 	mlx_image_t	*im;
+// 	t_ply		pl;
+// 	t_rys		ra[WIDTH];
+// }				t_inf;
+
 
 typedef struct	information
 {
 	float		w_w;
 	float		h_h;
+	mlx_texture_t *text;
+	mlx_image_t	*pic;
 	char		**plan;
 	void		*wi;
 	void		*wall;
@@ -89,7 +108,7 @@ void	draw_floor(t_inf *d, int x, int y);
 void	draw_player(t_inf *d);
 void	direct(double ang, t_rys *orient, t_ply *player);
 void	dda(double x0, double y0, double x1, double y1, t_inf *s);
-void	rendereding(t_inf *s);
+void	rendereding(t_inf *s, int i);
 void	draw_map_p(t_inf *dr);
 void	draw_line(t_inf *data, t_line ln);
 // double	hi_section(t_inf *s, t_crd *d);

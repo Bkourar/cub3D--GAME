@@ -1,65 +1,92 @@
 #include "recast.h"
 
-void	rendereding(t_inf *s)
+uint32_t	get_color(uint32_t color)
 {
-	double	ds_h;
-	double	y_h;
-	double	celling;
-	double	angl;
-	int		i;
-	int 	j;
-	int k;
+	uint8_t	b;
+	uint8_t	g;
+	uint8_t	r;
 
-	i = 0;
-	angl = tan(deg2rad(FOV / 2));
-	mlx_texture_t  *texture= mlx_load_png("bricks.png");
-	// mlx_image_t *img = mlx_texture_to_image(s->mlx, texture);
+	b = (color >> 16) & 0xFF;
+	g = (color >> 8) & 0xFF;
+	r = color & 0xFF;
+	return ((r << 24) | (g << 16) | (b << 8) | 0xFF);
+}
+
+// static void    set_color_value(t_exe *exec, float angle, int *color, t_ray *ray)
+// {
+//     if (ray->hv == 0 && ((angle >= 0 && angle < M_PI_2)
+//             || (angle >= 3 * M_PI_2 && angle < 2 * M_PI)))
+//         *color = get_pixel(exec->we->pixels, ray->o);
+//     else if (ray->hv == 0 && angle >= M_PI_2 && angle < 3 * M_PI_2)
+//         *color = get_pixel(exec->ea->pixels, ray->o);
+//     else if (ray->hv == 1 && angle >= 0 && angle < M_PI)
+//         *color = get_pixel(exec->so->pixels, ray->o);
+//     else if (ray->hv == 1 && angle >= M_PI && angle < 2 * M_PI)
+//         *color = get_pixel(exec->no->pixels, ray->o);
+//     if (exec->info.old_map[(int)floor(exec->ply.py / PIXELS)]
+//         [(int)floor(exec->ply.px / PIXELS)] == 'D')
+//         draw_opened_door(exec, color, ray);
+//     if (ray->d == 2)
+//         *color = get_pixel(exec->d->pixels, ray->o);
+// }
 
 
-	uint8_t r = 0;
-	uint8_t g = 0;
-	uint8_t b = 0;
-	uint8_t a = 0;
-	uint32_t color = 0;
-	int pixel_index = 0;
+void	rendereding_wall(t_inf *s, int pos_w, int w_hight, int *j)
+{
+	uint32_t		color;
+	int				index;
+	int				offex;
+	int				offey;
+	int				ds_from_to_pp;
+	int				start = w_hight;
+	uint32_t *pexel_arr = (uint32_t *)s->pic->pixels;
+	if (s->ra[pos_w].sens == true)
+		offex = ((int)s->ra[pos_w].r.x % TZ);
+	else
+		offex = ((int)s->ra[pos_w].r.y % TZ);
+	while (start > 0 && *j < HIGHT)
+	{
+		ds_from_to_pp = (*j) + (w_hight / 2) - (HIGHT / 2);
+		offey = ds_from_to_pp * ((float)TZ / w_hight);
+		index = ((s->pic->width * offey) + offex);
+		// printf("%d\n", index);
+		color = get_color(pexel_arr[index]);
+		mlx_put_pixel(s->im, pos_w, (*j)++, color);
+		start--;
+	}
+}
+
+void	rendereding_celling(t_inf *s, int i, double y_h, int *j)
+{
+	int	celling = (HIGHT / 2) - (y_h / 2);
+	while (celling > 0) 
+	{
+		mlx_put_pixel(s->im, i, (*j)++, (uint32_t)BLACK);
+		celling--;
+	}
+}
+
+void	rendereding_floor(t_inf *s, int i,int *j)
+{
+
+	while (*j < HIGHT) {
+		mlx_put_pixel(s->im, i, (*j)++, (uint32_t)WHITE);
+	}
+}
+
+void	rendereding(t_inf *s, int i)
+{
+	double		cosx = (WIDTH / 2) / tan(deg2rad(FOV / 2));
+	double		wall_h;
+	int			j;
+
 	while (i < WIDTH)
 	{
 		j = 0;
-		ds_h = (WIDTH / 2) / angl;
-		y_h = (PX / s->ra[i].ds) * ds_h;
-		celling = (HIGHT / 2) - (y_h / 2);
-		while (celling > 0)
-		{
-			mlx_put_pixel(s->im, i, j++, (uint32_t)BLUE);
-			celling--;
-		}
-		int l = 0;
-		int in_x;
-		if (s->ra[i].dr_y == 'D')
-			in_x = s->ra[i].r.x;
-		else
-			in_x = s->ra[i].r.y;;
- 		int	offx = y_h;
-		// int offy =  j * texture->height / y_h;
-		int k;
-		while (l < y_h && j < HIGHT)
-		{
-			k = ((offx - l) % (int)((double)PX / y_h));
-			pixel_index = (j * texture->width + i) * 4;
-			r = texture->pixels[pixel_index];
-			g = texture->pixels[pixel_index + 1];
-			b = texture->pixels[pixel_index + 2];
-			a = texture->pixels[pixel_index + 3];
-			color = (r << 24) | (g << 16) | (b << 8) | a;
-			mlx_put_pixel(s->im, i, j, color);
-				mlx_put_pixel(s->im, k, in_x, (uint32_t)YL);
-			l++;
-			j++;
-		}
-		while (j < HIGHT)
-			mlx_put_pixel(s->im, i, j++, (uint32_t)WHITE);
+		wall_h = (TZ / s->ra[i].ds) * cosx;
+		rendereding_celling(s, i, wall_h, &j);
+		rendereding_wall(s, i, wall_h, &j);
+		rendereding_floor(s, i ,&j);
 		i++;
 	}
-    // mlx_delete_image(s->mlx, img);
-    mlx_delete_texture(texture);
 }

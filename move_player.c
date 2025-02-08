@@ -11,10 +11,7 @@ bool	up(t_inf *s)
 	if (x <= 0 || y <= 0 || x > s->w_w || y > s->h_h)
 		return (false);
 	if (s->plan[(int)y / PX][(int)x / PX] == '1')
-	{
-		printf("wall hit\n");
 		return (false);
-	}
 	s->pl.p.x = x;
 	s->pl.p.y = y;
 	return (true);

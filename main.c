@@ -3,9 +3,11 @@
 
 static	void	start_game(t_inf mx)
 {
+	mx.text = mlx_load_png("door (1).png");
+	mx.pic = mlx_texture_to_image(mx.mlx, mx.text);
 	mlx_image_to_window(mx.mlx, mx.im, 0, 0);
 	raycasting(&mx);
-	rendereding(&mx);
+	rendereding(&mx, 0);
 	// draw_ma__p_p(&mx);
 	// t_line l;
 	// l.start.x = mx.pl.p.x;
