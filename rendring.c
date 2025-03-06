@@ -61,7 +61,7 @@ void	rendereding_celling(t_inf *s, int i, double y_h, int *j)
 	int	celling = (HIGHT / 2) - (y_h / 2);
 	while (celling > 0) 
 	{
-		mlx_put_pixel(s->im, i, (*j)++, (uint32_t)BLACK);
+		mlx_put_pixel(s->im, i, (*j)++, s->cell);
 		celling--;
 	}
 }
@@ -70,7 +70,7 @@ void	rendereding_floor(t_inf *s, int i,int *j)
 {
 
 	while (*j < HIGHT) {
-		mlx_put_pixel(s->im, i, (*j)++, (uint32_t)WHITE);
+		mlx_put_pixel(s->im, i, (*j)++, s->floo);
 	}
 }
 

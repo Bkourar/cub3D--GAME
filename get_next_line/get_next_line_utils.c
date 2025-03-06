@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:55:06 by eenassir          #+#    #+#             */
-/*   Updated: 2024/03/11 19:41:22 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:48:08 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*ft_strdup(char *s)
 	char	*p;
 	int		i;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
 	p = (char *)malloc(ft_strlen(s) + 1);
 	if (!p)
