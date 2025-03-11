@@ -1,43 +1,65 @@
-#include "recast.h"
-#include <string.h>
+#include "Includs/parse.h"
+#include "Includs/raycast.h"
 
-int main()
+static void	init_parameter(t_inf *mx, t_buff *mem, int x, int y)
 {
+	mx->load_i.text_n = mem->no_tex;
+	mx->load_i.text_s = mem->so_tex;
+	mx->load_i.text_w = mem->we_tex;
+	mx->load_i.text_e = mem->ea_tex;
+	mx->load_i.cillen = mem->cell;
+	mx->load_i.floor = mem->floo;
+	mx->h_h = mem->array_h * PX;
+	mx->w_w = mem->array_w * PX;
+	mx->pl.p.x = (x * TZ) + (TZ / 2);
+	mx->pl.p.y = (y * TZ) + (TZ / 2);
+	mx->mlx = mlx_init(WIDTH, HIGHT, "cub3D", false);
+	mx->im = mlx_new_image(mx->mlx, WIDTH, HIGHT);
+	mlx_image_to_window(mx->mlx, mx->im, 0, 0);
+}
+
+// static void	destroy_parameter(t_inf mx, t_buff *mem)
+// {
+// 	int	i;
+// 	(void)mem;
+
+// 	i = -1;
+// 	while (++i < mx.w_w)
+// 		free(*(mx.plan + i));
+// 	free(mx.plan);
+// }
+
+// static void	start_game(t_inf mx, t_buff *mem)
+// {
+// 	(raycasting(&mx), rendering(&mx, 0));
+// 	mlx_loop_hook(mx.mlx, run, &mx);
+// 	mlx_loop(mx.mlx);
+// 	destroy_parameter(mx, mem);
+// }
+
+// void fe()
+// {
+// 	system("leaks cub3D");
+// }
+
+int main(int ac, char **av)
+{
+	// atexit(fe);
 	t_inf	mx;
-	mx.plan = (char **)malloc(sizeof(char *) * 12);
-	if (!mx.plan)
+	t_buff *mem;
+
+	mem = ft_parsing(ac, av);
+	if (!mem)
 		return (1);
-	*(mx.plan) = strdup("111111111111111");
-	*(mx.plan + 1) = strdup("100000000000101");
-	*(mx.plan + 2) = strdup("101001000000101");
-	*(mx.plan + 3) = strdup("1111000S0010101");
-	*(mx.plan + 4) = strdup("100000000010101");
-	*(mx.plan + 5) = strdup("100000001111101");
-	*(mx.plan + 6) = strdup("100000000000001");
-	*(mx.plan + 7) = strdup("100000000000001");
-	*(mx.plan + 8) = strdup("111111000111101");
-	*(mx.plan + 9) = strdup("100000000000001");
-	*(mx.plan + 10) = strdup("111111111111111");
-	*(mx.plan + 11) = 0;
-	// for (int i = 0; i < 11; i++)
-	// 	for (int j = 0; j < 15; j++)
-	// 		if (mx.plan[i][j] == 'S')
-	// 			printf("%d--%d\n", i, j);
-	// exit(1);
-	mx.x = (15 * PX);
-	mx.y = (11 * PX);
-	mx.mlx = mlx_init(mx.x, mx.y, "Win", false);
-	mx.im = mlx_new_image(mx.mlx, mx.x, mx.y);
-	mx.info.p_x = (7 * PX) + 16;
-	mx.info.p_y = (3 * PX) + 16;
-	mx.info.rot = deg2rad(270);
-	// printf("%f---\n", mx.info.p_y);
-	// exit(1);
-	mlx_image_to_window(mx.mlx, mx.im, 0, 0);
-	mlx_loop_hook(mx.mlx, routine, &mx);
-	// mlx_key_hook(mx.mlx, routine, &mx);
-	mlx_loop(mx.mlx);
-	for (int i = 0; i < 12; i++)
-		free(*(mx.plan + i));
-	free(mx.plan);
+	if (get_map_mem(&mx, mem))
+		return (1);
+	get_player_pos(&mx);
+	init_parameter(&mx, mem, mx.pl.p.x, mx.pl.p.y);
+	printf("%d\n",mem->array_h);
+	printf("%d\n",mem->array_w);
+	for (int i = 0; i < mem->array_w; i++)
+	{
+		puts(mx.plan[i]);
+	}
+	// start_game(mx, mem);
 }
