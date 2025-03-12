@@ -5,10 +5,8 @@ bool	up(t_inf *s)
 	double	x;
 	double	y;
 
-	x = s->pl.p.x +  (3 * cos(s->pl.rot));
-	y = s->pl.p.y + (3 * sin(s->pl.rot));
-	if (x < 0 || y < 0 || x  > WIDTH || y > HIGHT)
-		return (false);
+	x = s->pl.p.x + (5 * cos(s->pl.rot));
+	y = s->pl.p.y + (5 * sin(s->pl.rot));
 	if (!checking(s->pl.p.x, y, s))
 		s->pl.p.y = y;
 	if (!checking(x, s->pl.p.y, s))
@@ -21,10 +19,8 @@ bool	down(t_inf *s)
 	double	x;
 	double	y;
 
-	x = s->pl.p.x -  (3 * cos(s->pl.rot));
-	y = s->pl.p.y - (3 * sin(s->pl.rot));
-	if (x < 0 || y < 0 || x > WIDTH || y > HIGHT)
-		return (false);
+	x = s->pl.p.x - (5 * cos(s->pl.rot));
+	y = s->pl.p.y - (5 * sin(s->pl.rot));
 	if (!checking(s->pl.p.x, y, s))
 		s->pl.p.y = y;
 	if (!checking(x, s->pl.p.y, s))
@@ -37,10 +33,8 @@ bool	left(t_inf *s)
 	double	x;
 	double	y;
 
-	x = s->pl.p.x + (3 * sin(s->pl.rot));
-	y = s->pl.p.y -  (3 * cos(s->pl.rot));
-	if (x < 0 || y < 0 || x > WIDTH || y > HIGHT )
-		return (false);
+	x = s->pl.p.x + (5 * sin(s->pl.rot));
+	y = s->pl.p.y -  (5 * cos(s->pl.rot));
 	if (!checking(s->pl.p.x, y, s))
 		s->pl.p.y = y;
 	if (!checking(x, s->pl.p.y, s))
@@ -53,10 +47,8 @@ bool	right(t_inf *s)
 	double	x;
 	double	y;
 
-	x = s->pl.p.x - (3 * sin(s->pl.rot));
-	y = s->pl.p.y +  (3 * cos(s->pl.rot));
-	if (x < 0 || y < 0 || x > WIDTH || y > HIGHT)
-		return (false);
+	x = s->pl.p.x - (5 * sin(s->pl.rot));
+	y = s->pl.p.y +  (5 * cos(s->pl.rot));
 	if (!checking(s->pl.p.x, y, s))
 		s->pl.p.y = y;
 	if (!checking(x, s->pl.p.y, s))
@@ -71,8 +63,8 @@ bool	right(t_inf *s)
 // 	double	y;
 
 	
-// 	x = s->pl.p.x + (3 * cos(s->pl.rot));
-// 	y = s->pl.p.y + (3 * sin(s->pl.rot));
+// 	x = s->pl.p.x + (5 * cos(s->pl.rot));
+// 	y = s->pl.p.y + (5 * sin(s->pl.rot));
 // 	if (x <= 0 || y <= 0 || x > WIDTH || y > HIGHT)
 // 		return (false);
 // 	if (s->plan[(int)y / PX][(int)x / PX] == '1')
@@ -87,8 +79,8 @@ bool	right(t_inf *s)
 // 	double	x;
 // 	double	y;
 
-// 	x = s->pl.p.x - (3 * cos(s->pl.rot));
-// 	y = s->pl.p.y - (3 * sin(s->pl.rot));
+// 	x = s->pl.p.x - (5 * cos(s->pl.rot));
+// 	y = s->pl.p.y - (5 * sin(s->pl.rot));
 // 	if (x <= 0 || y <= 0 || x > WIDTH || y > HIGHT)
 // 		return (false);
 // 	if (s->plan[(int)y / PX][(int)x / PX] == '1')
@@ -103,8 +95,8 @@ bool	right(t_inf *s)
 // 	double	x;
 // 	double	y;
 
-// 	x = s->pl.p.x + (3 * sin(s->pl.rot));
-// 	y = s->pl.p.y - (3 * cos(s->pl.rot));
+// 	x = s->pl.p.x + (5 * sin(s->pl.rot));
+// 	y = s->pl.p.y - (5 * cos(s->pl.rot));
 // 	if (x <= 0 || y <= 0 || x > WIDTH || y > HIGHT)
 // 		return (false);
 // 	if (s->plan[(int)y / PX][(int)x / PX] == '1')
@@ -119,8 +111,8 @@ bool	right(t_inf *s)
 // 	double	x;
 // 	double	y;
 	
-// 	x = s->pl.p.x - (3 * sin(s->pl.rot));
-// 	y = s->pl.p.y + (3 * cos(s->pl.rot));
+// 	x = s->pl.p.x - (5 * sin(s->pl.rot));
+// 	y = s->pl.p.y + (5 * cos(s->pl.rot));
 // 	if (x <= 0 || y <= 0 || x > WIDTH || y > HIGHT)
 // 		return (false);
 // 	if (s->plan[(int)y / PX][(int)x / PX] == '1')

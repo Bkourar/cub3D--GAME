@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:29:02 by bikourar          #+#    #+#             */
-/*   Updated: 2025/03/11 17:36:10 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/12 15:18:16 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <math.h>
 # include <fcntl.h>
 # include "../MLX42/include/MLX42/MLX42.h"
+# include <unistd.h>
 
-# define WIDTH 1280
-# define HIGHT 720
-# define PX 64
+# define WIDTH 1920
+# define HIGHT 1080
 # define TZ 64
 # define FOV 60
 # define BLACK 0x00000FFF
@@ -94,7 +94,7 @@ double		deg2rad(double deg);
 double		rad2deg(double rad);
 void		raycasting(t_inf *s);
 double		norm_rays(double ang);
-void		rendering(t_inf *s, int i);
+void		rendering(void *arg);
 int			checking(double x, double y, t_inf *s);
 void		set_distance(t_rys *r, t_crd h, t_crd v, t_ply c);
 t_maping	gtd_hor(double ang);

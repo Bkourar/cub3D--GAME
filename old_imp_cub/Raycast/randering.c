@@ -34,7 +34,6 @@ static void	rendereding_celling(t_inf *s, int i, double y_h, int *j)
 	while (celling > 0) 
 	{
 		mlx_put_pixel(s->im, i, (*j), s->load_i.cillen);
-		// mlx_put_pixel(s->im, i, (*j), (uint32_t)BLACK);
 		*j = *j + 1;
 		celling--;
 	}
@@ -44,18 +43,22 @@ static void	rendereding_floor(t_inf *s, int i,int *j)
 {
 	while (*j < HIGHT) {
 		mlx_put_pixel(s->im, i, (*j), s->load_i.floor);
-		// mlx_put_pixel(s->im, i, (*j), (uint32_t)WHITE);
 		*j = *j + 1;
 	}
 }
 
-void	rendering(t_inf *s, int i)
+void	rendering(void *arg)
 {
-	double		cosx = (WIDTH / 2) / tan(deg2rad(FOV / 2));
+	t_inf		*s;
+	int			i;
+	double		cosx;
 	double		wall_h;
 	int			j;
 
+	cosx = (WIDTH / 2) / tan(deg2rad(FOV / 2));
+	s = (t_inf*)arg;
 	s->text = NULL;
+	i = 0;
 	while (i < WIDTH)
 	{
 		j = 0;

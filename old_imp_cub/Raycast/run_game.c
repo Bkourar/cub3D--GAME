@@ -35,10 +35,7 @@ static void	moveing(t_inf *s)
 	if (mlx_is_key_down(s->mlx, MLX_KEY_ESCAPE))
 		exit(1);
 	if (mv)
-	{
 		raycasting(s);
-		rendering(s, 0);
-	}
 }
 
 void	run(void *arg)
@@ -46,4 +43,5 @@ void	run(void *arg)
 	t_inf	*s;
 	s = (t_inf *)arg;
 	moveing(s);
+	usleep(1000);
 }

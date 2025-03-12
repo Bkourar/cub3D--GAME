@@ -6,7 +6,7 @@
 /*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:39:02 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/11 17:48:07 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:57:07 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,14 @@ char	*ft_strdup_1(char *s, t_buff *mem)
 	return (p);
 }
 
-void	get_player_pos(t_inf *mx)
+static void	set_data(double ang, int y, int x, t_buff *inf)
+{
+	inf->player_deg = ang;
+	inf->playerY = y;
+	inf->playerX = x;
+}
+
+void	get_player_pos(t_inf *mx, t_buff *inf)
 {
 	int i;
 	int j;
@@ -51,25 +58,13 @@ void	get_player_pos(t_inf *mx)
 		while (mx->plan[i][j])
 		{
 			if (mx->plan[i][j] == 'N')
-			{
-				mx->pl.rot = deg2rad(270);
-				mx->pl.p = (t_crd){j, i};
-			}
+				set_data(deg2rad(270), i, j, inf);
 			if (mx->plan[i][j] == 'E')
-			{
-				mx->pl.rot = deg2rad(0);
-				mx->pl.p = (t_crd){j, i};
-			}
+				set_data(deg2rad(0), i, j, inf);
 			if (mx->plan[i][j] == 'S')
-			{
-				mx->pl.rot = deg2rad(90);
-				mx->pl.p = (t_crd){j, i};
-			}
+				set_data(deg2rad(90), i, j, inf);
 			if (mx->plan[i][j] == 'W')
-			{
-				mx->pl.rot = deg2rad(180);
-				mx->pl.p = (t_crd){j, i};
-			}
+				set_data(deg2rad(180), i, j, inf);
 			j++;
 		}
 		i++;

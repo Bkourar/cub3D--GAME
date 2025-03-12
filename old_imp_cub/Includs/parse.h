@@ -50,8 +50,8 @@ typedef struct s_buff
 
 	int playerX;
 	int playerY;
+	double player_deg;
 
-	int player_deg;
 } t_buff;
 
 int		ft_strncmp(char *s1, char *s2, int n);
@@ -60,7 +60,7 @@ char	*ft_strjoin_m(char *s1, int add);
 void	ft_error(char *str1, char *str2, char *str3);
 char	*ft_strdup_p(char *s);
 char	*ft_strdup_1(char *s, t_buff *mem);
-void	get_player_pos(t_inf *mx);
+void	get_player_pos(t_inf *mx, t_buff *inf);
 int		get_map_mem(t_inf *mx, t_buff *mem);
 
 void	ft_free(t_buff *mem);

@@ -18,7 +18,7 @@ int	checking(double x, double y, t_inf *s)
 	i = 0;
 	while (i < 5)
 	{
-		if (s->plan[(int)(check[i][1] / PX)][(int)(check[i][0] / PX)] == '1')
+		if (s->plan[(int)(check[i][1] / TZ)][(int)(check[i][0] / TZ)] == '1')
 			return (1);
 		i++;
 	}
