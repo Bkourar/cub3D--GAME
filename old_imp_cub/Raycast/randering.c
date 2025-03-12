@@ -1,4 +1,4 @@
-#include "Includs/raycast.h"
+#include "../Includs/raycast.h"
 
 void	rendereding_wall(t_inf *s, int pos_w, double w_hight, int *j)
 {

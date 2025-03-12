@@ -1,4 +1,4 @@
-#include "Includs/raycast.h"
+#include "../Includs/raycast.h"
 
 int	checking(double x, double y, t_inf *s)
 {

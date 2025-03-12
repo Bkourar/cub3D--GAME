@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:05:53 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/09 11:41:34 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:53:20 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Includs/parse.h"
-#include "Includs/raycast.h"
+#include "../../Includs/parse.h"
+#include "../../Includs/raycast.h"
 
 int util_color1(char *s)
 {

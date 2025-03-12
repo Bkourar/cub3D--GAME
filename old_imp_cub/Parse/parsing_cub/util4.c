@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   util4.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:46:52 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/09 11:43:32 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:54:25 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includs/parse.h"
-#include "Includs/raycast.h"
+#include "../../Includs/parse.h"
+#include "../../Includs/raycast.h"
 
 void	ft_free(t_buff *mem)
 {

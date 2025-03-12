@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   util2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:39:02 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 13:57:07 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:53:44 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Includs/parse.h"
-#include "Includs/raycast.h"
+#include "../../Includs/parse.h"
+#include "../../Includs/raycast.h"
 
 char	*ft_strdup_1(char *s, t_buff *mem)
 {

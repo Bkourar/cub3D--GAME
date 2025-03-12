@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   util5.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:28:55 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/11 17:53:30 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:54:36 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includs/parse.h"
-#include "Includs/raycast.h"
+#include "../../Includs/parse.h"
+#include "../../Includs/raycast.h"
 
 int ft_get_map_line_nbr(t_buff *mem)
 {

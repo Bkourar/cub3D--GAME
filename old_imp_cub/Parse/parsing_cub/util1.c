@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   util1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:23:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/09 11:42:20 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:53:30 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includs/parse.h"
-#include "Includs/raycast.h"
+#include "../../Includs/parse.h"
+#include "../../Includs/raycast.h"
 
 char	*ft_strdup_p(char *s)
 {

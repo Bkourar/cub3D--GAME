@@ -1,4 +1,4 @@
-#include "Includs/raycast.h"
+#include "../Includs/raycast.h"
 
 bool	up(t_inf *s)
 {

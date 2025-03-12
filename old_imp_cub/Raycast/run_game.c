@@ -1,4 +1,4 @@
-#include "Includs/raycast.h"
+#include "../Includs/raycast.h"
 
 bool	rot_right(t_inf *s)
 {
