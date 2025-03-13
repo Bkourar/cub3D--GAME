@@ -8,8 +8,8 @@ static void	init_parameter(t_inf *mx, t_buff *mem)
 	mlx_image_to_window(mx->mlx, mx->im, 0, 0);
 	mx->load_i.frame1 = mlx_load_png("Bonus/Images/weapon_1.png");
 	mx->load_i.frame2 = mlx_load_png("Bonus/Images/weapon_3.png");
-	mx->load_i.c.x = (WIDTH / 2) - (mx->load_i.frame1->width / 2);
-	mx->load_i.c.y = HIGHT - mx->load_i.frame1->height;
+	if (!mx->load_i.frame1 || !mx->load_i.frame2)
+		puts("falied"), exit(1);
 	mx->load_i.text_n = mem->no_tex;
 	mx->load_i.text_s = mem->so_tex;
 	mx->load_i.text_w = mem->we_tex;
@@ -21,6 +21,8 @@ static void	init_parameter(t_inf *mx, t_buff *mem)
 	mx->pl.p.x = (mem->playerX * TZ) + (TZ / 2);
 	mx->pl.p.y = (mem->playerY * TZ) + (TZ / 2);
 	mx->pl.rot = mem->player_deg;
+	mx->sprit_on = false;
+	mx->text = NULL;
 }
 
 static void	destroy_parameter(t_inf mx, t_buff *mem)

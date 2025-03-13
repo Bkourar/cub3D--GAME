@@ -1,5 +1,4 @@
 #include "../Includs/raycast_bonus.h"
-#include "../Includs/parse_bonus.h"
 
 void	rendereding_sprit(t_inf *s)
 {
@@ -8,22 +7,23 @@ void	rendereding_sprit(t_inf *s)
 	uint32_t	x;
 	uint32_t	y;
 
-	get_frame(s);
-	pexel_arr = (uint32_t *)s->text->pixels;
+	s->t_sprit = get_frame(s);
+	s->load_i.c.x = (WIDTH / 2) - (s->t_sprit->width / 2);
+	s->load_i.c.y = HIGHT - s->t_sprit->height;
+	pexel_arr = (uint32_t *)s->t_sprit->pixels;
 	y = 0;
-	while (y < s->text->height)
+	while (y < s->t_sprit->height)
 	{
 		x = 0;
-		while (x < s->text->width)
+		while (x < s->t_sprit->width)
 		{
-			col = get_color(pexel_arr[(s->text->width * y) + x]);
+			col = get_color(pexel_arr[(s->t_sprit->width * y) + x]);
 			if (col != NOT)
 				mlx_put_pixel(s->im, s->load_i.c.x + x, s->load_i.c.y + y, col);
 			x++;
 		}
 		y++;
 	}
-	s->text = NULL;
 }
 
 void	rendereding_wall(t_inf *s, int pos_w, double w_hight, int *j)
@@ -51,7 +51,6 @@ void	rendereding_wall(t_inf *s, int pos_w, double w_hight, int *j)
 		mlx_put_pixel(s->im, pos_w, (*j)++, color);
 		start++;
 	}
-	s->text = NULL;
 }
 
 
@@ -86,6 +85,7 @@ void	rendering(void *arg)
 	s = (t_inf*)arg;
 	i = 0;
 	s->text = NULL;
+	s->t_sprit = NULL;
 	while (i < WIDTH)
 	{
 		j = 0;
@@ -95,6 +95,5 @@ void	rendering(void *arg)
 		rendereding_floor(s, i ,&j);
 		i++;
 	}
-	draw_mini_map(s);
 	rendereding_sprit(s);
 }

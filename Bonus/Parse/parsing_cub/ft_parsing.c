@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:05:53 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/13 17:32:14 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:06:34 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -452,24 +452,17 @@ void ft_free_mlx_texture_t(t_buff *mem)
 		mlx_delete_texture(mem->ea_tex);
 }
 
-int ft_cheek_tex_util(char **array, t_buff *mem, int count)
+int ft_cheek_tex(char **array, t_buff *mem)
 {
+	int count;
+	
+	count = find_map(array);
 	if (get_tex(mem, count))
 		return (1);
 	if (cheek_per(mem) == 1)
 		return (ft_free_textures(mem), 1);
 	if (cheek_map_char(array, count))
 		return (ft_free_textures(mem), 1);
-	return (0);
-}
-
-int ft_cheek_tex(char **array, t_buff *mem)
-{
-	int count;
-	
-	count = find_map(array);
-	if (ft_cheek_tex_util(array, mem, count))
-		return (1);
 	mem->no_tex =  mlx_load_png(mem->NO);
 	if (mem->no_tex == NULL)
 		return (ft_error("Error\n", NULL, NULL), 1);
@@ -481,12 +474,6 @@ int ft_cheek_tex(char **array, t_buff *mem)
 		return (ft_error("Error\n", NULL, NULL), 1);
 	mem->ea_tex = mlx_load_png(mem->EA);
 	if (mem->ea_tex == NULL)
-		return (ft_error("Error\n", NULL, NULL), 1);
-	mem->weapon1 =  mlx_load_png("Bonus/Images/weapon_1.png");
-	if (mem->weapon1 == NULL)
-		return (ft_error("Error\n", NULL, NULL), 1);
-	mem->weapon2 = mlx_load_png("Bonus/Images/weapon_3.png");
-	if (mem->weapon2 == NULL)
 		return (ft_error("Error\n", NULL, NULL), 1);
 	ft_free_textures(mem);
 	return(0);

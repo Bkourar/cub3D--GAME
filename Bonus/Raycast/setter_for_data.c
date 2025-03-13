@@ -46,10 +46,10 @@ mlx_texture_t	*get_texture(t_inf *s, int i)
 	return (NULL);
 }
 
-void	get_frame(t_inf *s)
+mlx_texture_t	*get_frame(t_inf *s)
 {
 	if (s->sprit_on)
-		s->text = s->load_i.frame2;
+		return (s->load_i.frame2);
 	else
-		s->text = s->load_i.frame1;
+		return (s->load_i.frame1);
 }

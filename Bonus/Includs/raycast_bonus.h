@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:29:02 by bikourar          #+#    #+#             */
-/*   Updated: 2025/03/13 15:20:23 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/13 22:28:03 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ typedef struct s_txt
 
 typedef struct	s_information
 {
-	int				wid;
 	int				w_w;		//width
 	int				h_h;		//highet
 	char			**plan;		//map input
 	mlx_t			*mlx;
 	mlx_image_t		*im;		//images
 	mlx_texture_t	*text;		// texture loading
+	mlx_texture_t	*t_sprit;		// texture loading
 	t_txt			load_i;		//texture paramter
 	t_ply			pl;			//player paramter
 	t_rys			ra[WIDTH];	//rays array
@@ -101,6 +101,6 @@ bool			left(t_inf *s);
 bool			down(t_inf *s);
 bool			up(t_inf *s);
 uint32_t		get_color(uint32_t color);
-void			get_frame(t_inf *s);
+mlx_texture_t	*get_frame(t_inf *s);
 
 #endif
