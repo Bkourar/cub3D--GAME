@@ -1,7 +1,0 @@
-/Users/eenassir/Desktop/cub3D/build/CMakeFiles/mlx42.dir
-/Users/eenassir/Desktop/cub3D/build/CMakeFiles/edit_cache.dir
-/Users/eenassir/Desktop/cub3D/build/CMakeFiles/rebuild_cache.dir
-/Users/eenassir/Desktop/cub3D/build/CMakeFiles/list_install_components.dir
-/Users/eenassir/Desktop/cub3D/build/CMakeFiles/install.dir
-/Users/eenassir/Desktop/cub3D/build/CMakeFiles/install/local.dir
-/Users/eenassir/Desktop/cub3D/build/CMakeFiles/install/strip.dir
