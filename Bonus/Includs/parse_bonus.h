@@ -9,6 +9,32 @@
 # include "../../MLX42/include/MLX42/MLX42.h"
 # include "../Parse/get_next_line/get_next_line.h"
 # include "raycast_bonus.h"
+#define scal 0.25
+
+#define COLOR1 0xBBBBBB99
+
+typedef struct s_cordinates
+{
+	int	x;
+	int	y;
+}	t_cordinates;
+
+
+typedef struct s_utils
+{
+	double	top_x;
+	double	top_y;
+	double	left_x;
+	double	left_y;
+	double	right_x;
+	double	right_y;
+	int		dx;
+	int		dy;
+	int		sx;
+	int		sy;
+	int		err;
+	int		e2;
+}	t_utils;
 
 typedef struct	s_map
 {
@@ -42,6 +68,8 @@ typedef struct	s_buff
 	mlx_texture_t	*so_tex;
 	mlx_texture_t	*we_tex;
 	mlx_texture_t	*ea_tex;
+	mlx_texture_t	*weapon1;
+	mlx_texture_t	*weapon2;
 	int				playerX;
 	int				playerY;
 	double			player_deg;
@@ -64,6 +92,7 @@ char	*ft_skip_spaces(char *s);
 char	*ft_re_alloc(char *buffer);
 int		ft_cheek_fd(int ac , char **av);
 char	*ft_re_alloc(char *buffer);
+void	draw_mini_map(t_inf *s);
 
 
 #endif

@@ -5,7 +5,7 @@ NAMEB = cub3d_bonus
 BSRCP = Bonus/Parse/get_next_line/get_next_line.c Bonus/Parse/get_next_line/get_next_line_utils.c \
 		Bonus/Parse/libft/ft_strncmp.c Bonus/Parse/libft/ft_error.c \
 		Bonus/Parse/parsing_cub/ft_parsing.c Bonus/Parse/parsing_cub/util1.c Bonus/Parse/parsing_cub/util2.c\
-		Bonus/Parse/parsing_cub/util3.c Bonus/Parse/parsing_cub/util4.c Bonus/Parse/parsing_cub/util5.c
+		Bonus/Parse/parsing_cub/util3.c Bonus/Parse/parsing_cub/util4.c Bonus/Parse/parsing_cub/util5.c Bonus/Parse/mini_m.c
 
 BSRCR = Bonus/Raycast/Raycasting.c Bonus/Raycast/checker.c Bonus/Raycast/math_formulas.c Bonus/Raycast/randering.c \
 		Bonus/Raycast/run_game.c Bonus/Raycast/setter_for_data.c Bonus/Raycast/moves.c
@@ -47,7 +47,7 @@ $(NAME): $(OBJSM)
 
 
 $(NAMEB): $(OBJSB)
-	@$(CC) $(MLX42) $(OBJSB) -o $(NAMEB) -g -fsanitize=address
+	@$(CC) $(MLX42) $(OBJSB) -o $(NAMEB) 
 	@echo "$(GREEN)make cub3d_bonus"
 
 

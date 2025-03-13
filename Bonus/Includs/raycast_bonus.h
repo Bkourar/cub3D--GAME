@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:29:02 by bikourar          #+#    #+#             */
-/*   Updated: 2025/03/13 11:28:07 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:20:23 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_txt
 
 typedef struct	s_information
 {
+	int				wid;
 	int				w_w;		//width
 	int				h_h;		//highet
 	char			**plan;		//map input

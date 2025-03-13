@@ -1,4 +1,5 @@
 #include "../Includs/raycast_bonus.h"
+#include "../Includs/parse_bonus.h"
 
 void	rendereding_sprit(t_inf *s)
 {
@@ -10,7 +11,7 @@ void	rendereding_sprit(t_inf *s)
 	get_frame(s);
 	pexel_arr = (uint32_t *)s->text->pixels;
 	y = 0;
-	while (++y < s->text->height)
+	while (y < s->text->height)
 	{
 		x = 0;
 		while (x < s->text->width)
@@ -94,5 +95,6 @@ void	rendering(void *arg)
 		rendereding_floor(s, i ,&j);
 		i++;
 	}
+	draw_mini_map(s);
 	rendereding_sprit(s);
 }
