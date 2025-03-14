@@ -52,12 +52,6 @@ t_crd	i_vertical(t_inf *s, double ang)
 		k = cur.x - (gtd_ver(ang) == WEST);
 		if (s->plan[(int)floor(cur.y / TZ)][(int)floor(k / TZ)] == '1')
 			return (cur);
-		if (s->plan[(int)floor(cur.y / TZ)][(int)floor(k / TZ)] == 'D')
-		{
-			printf ("%f\n", cur.x);
-			printf ("%f\n", cur.y);
-			printf ("bab\n");
-		}
 		cur.y += nex.y;
 		cur.x += nex.x;
 	}
