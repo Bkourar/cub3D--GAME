@@ -1,6 +1,15 @@
 #include "../Includs/raycast_bonus.h"
 
-t_crd	i_horizontal(t_inf *s, double ang)
+static bool	check(char c, t_rys *r)
+{
+	if (c == 'D')
+		r->stat = true;
+	else if (c == 'o')
+		r->stat = false;
+	return	(c == 'D' || c == '1');
+}
+
+t_crd	i_horizontal(t_inf *s, double ang, t_rys *r)
 {
 	t_crd	cur;
 	t_crd	nex;
@@ -21,7 +30,7 @@ t_crd	i_horizontal(t_inf *s, double ang)
 	while (cur.x >= 0 && cur.y >= 0 && cur.x < s->w_w && cur.y < s->h_h)
 	{
 		k = cur.y - (gtd_hor(ang) == NORTH);
-		if (s->plan[(int)floor(k / TZ)][(int)floor(cur.x / TZ)] == '1')
+		if (check(s->plan[(int)floor(k / TZ)][(int)floor(cur.x / TZ)], r))
 			return (cur);
 		cur.y += nex.y;
 		cur.x += nex.x;
@@ -29,7 +38,7 @@ t_crd	i_horizontal(t_inf *s, double ang)
 	return ((t_crd){__INT_MAX__, __INT_MAX__});
 }
 
-t_crd	i_vertical(t_inf *s, double ang)
+t_crd	i_vertical(t_inf *s, double ang, t_rys *r)
 {
 	t_crd	cur;
 	t_crd	nex;
@@ -50,7 +59,7 @@ t_crd	i_vertical(t_inf *s, double ang)
 	while (cur.x >= 0 && cur.y >= 0 && cur.x < s->w_w && cur.y < s->h_h)
 	{
 		k = cur.x - (gtd_ver(ang) == WEST);
-		if (s->plan[(int)floor(cur.y / TZ)][(int)floor(k / TZ)] == '1')
+		if (check(s->plan[(int)floor(cur.y / TZ)][(int)floor(k / TZ)], r))
 			return (cur);
 		cur.y += nex.y;
 		cur.x += nex.x;
@@ -70,9 +79,9 @@ void	raycasting(t_inf *s)
 	i = 0;
 	while (i < WIDTH)
 	{
-		s->ra[i].rot = norm_rays(parameter.y);
-		c_horizontal = i_horizontal(s, s->ra[i].rot);
-		c_vertical = i_vertical(s, s->ra[i].rot);
+		s->ra[i].rot = norm_rays(parameter.y, &s->ra[i], s);
+		c_horizontal = i_horizontal(s, s->ra[i].rot, &s->ra[i]);
+		c_vertical = i_vertical(s, s->ra[i].rot,  &s->ra[i]);
 		set_distance(&s->ra[i], c_horizontal, c_vertical, s->pl);
 		parameter.y += parameter.x;
 		i++;

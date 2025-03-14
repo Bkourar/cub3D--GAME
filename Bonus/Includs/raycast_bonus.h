@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:29:02 by bikourar          #+#    #+#             */
-/*   Updated: 2025/03/13 23:49:50 by eenassir         ###   ########.fr       */
+/*   Updated: 2025/03/14 17:29:51 by bikourar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ typedef struct	rays
 	double		rot;	//ray angle
 	double		ds;		//ray distance with wall
 	bool		sens;	//projections
-	t_crd	r;
+	bool		stat;	//wall or Door
+	t_crd		r;
 }			t_rys;
 
 typedef struct s_txt
@@ -66,6 +67,7 @@ typedef struct s_txt
 	mlx_texture_t	*text_e;
 	mlx_texture_t	*frame1;
 	mlx_texture_t	*frame2;
+	mlx_texture_t	*door;
 	t_maping		*maping;
 	t_crd			c;
 }					t_txt;
@@ -77,20 +79,20 @@ typedef struct	s_information
 	char			**plan;		//map input
 	mlx_t			*mlx;
 	mlx_image_t		*im;		//images
-	int				wid;
 	mlx_texture_t	*text;		// texture loading
 	mlx_texture_t	*t_sprit;		// texture loading
 	t_txt			load_i;		//texture paramter
 	t_ply			pl;			//player paramter
 	t_rys			ra[WIDTH];	//rays array
 	bool			sprit_on;	//action active
+	bool			is_door;
 }					t_inf;
 
 void			run(void *arg);
 double			deg2rad(double deg);
 double			rad2deg(double rad);
 void			raycasting(t_inf *s);
-double			norm_rays(double ang);
+double			norm_rays(double ang, t_rys *r, t_inf *s);
 void			rendering(void *arg);
 int				checking(double x, double y, t_inf *s);
 void			set_distance(t_rys *r, t_crd h, t_crd v, t_ply c);
@@ -103,5 +105,7 @@ bool			down(t_inf *s);
 bool			up(t_inf *s);
 uint32_t		get_color(uint32_t color);
 mlx_texture_t	*get_frame(t_inf *s);
+void			switch_map(char ***arr, bool on, t_ply c);
+bool			indexing(int y1, int y2, int x1, int x2);
 
 #endif

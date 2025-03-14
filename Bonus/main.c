@@ -8,8 +8,9 @@ static void	init_parameter(t_inf *mx, t_buff *mem)
 	mlx_image_to_window(mx->mlx, mx->im, 0, 0);
 	mx->load_i.frame1 = mlx_load_png("Bonus/Images/weapon_1.png");
 	mx->load_i.frame2 = mlx_load_png("Bonus/Images/weapon_3.png");
-	if (!mx->load_i.frame1 || !mx->load_i.frame2)
-		return (ft_error("Error\nfailed to png\n", NULL, NULL));
+	mx->load_i.door = mlx_load_png("Bonus/Images/7.png");
+	if (!mx->load_i.frame1 || !mx->load_i.frame2 || !mx->load_i.door)
+		puts("falied"), exit(1);
 	mx->load_i.text_n = mem->no_tex;
 	mx->load_i.text_s = mem->so_tex;
 	mx->load_i.text_w = mem->we_tex;
@@ -22,6 +23,7 @@ static void	init_parameter(t_inf *mx, t_buff *mem)
 	mx->pl.p.y = (mem->playerY * TZ) + (TZ / 2);
 	mx->pl.rot = mem->player_deg;
 	mx->sprit_on = false;
+	mx->is_door = false;
 	mx->text = NULL;
 }
 

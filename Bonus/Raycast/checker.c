@@ -1,5 +1,11 @@
 #include "../Includs/raycast_bonus.h"
 
+static bool	stop(char c)
+{
+	return (c == '1'  || c == 'D');
+}
+
+
 int	checking(double x, double y, t_inf *s)
 {
 	double	check[5][2];
@@ -18,7 +24,7 @@ int	checking(double x, double y, t_inf *s)
 	i = 0;
 	while (i < 5)
 	{
-		if (s->plan[(int)(check[i][1] / TZ)][(int)(check[i][0] / TZ)] == '1')
+		if (stop(s->plan[(int)(check[i][1] / TZ)][(int)(check[i][0] / TZ)]))
 			return (1);
 		i++;
 	}
@@ -42,3 +48,9 @@ t_maping	gtd_hor(double ang)
 		return (SOUTH);
 }
 
+bool	indexing(int y1, int y2, int x1, int x2)
+{
+	if (y1 == y2 && x1 == x2)
+		return false;
+	return true;
+}

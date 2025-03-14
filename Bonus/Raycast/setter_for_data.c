@@ -35,7 +35,9 @@ void	set_distance(t_rys *r, t_crd h, t_crd v, t_ply c)
 
 mlx_texture_t	*get_texture(t_inf *s, int i)
 {
-	if (s->ra[i].sens && gtd_hor(s->ra[i].rot) == NORTH)
+	if (!s->is_door && s->ra[i].stat)
+		return (s->load_i.door);
+	else if (s->ra[i].sens && gtd_hor(s->ra[i].rot) == NORTH)
 		return(s->load_i.text_n);
 	else if (s->ra[i].sens && gtd_hor(s->ra[i].rot) == SOUTH)
 		return(s->load_i.text_s);
@@ -52,4 +54,31 @@ mlx_texture_t	*get_frame(t_inf *s)
 		return (s->load_i.frame2);
 	else
 		return (s->load_i.frame1);
+}
+
+void	switch_map(char ***arr, bool on, t_ply c)
+{
+	int		i;
+	int		j;
+	int		x;
+	int		y;
+	char	**p;
+
+	p = *arr;
+	x = floor(c.p.x) / TZ;
+	y = floor(c.p.y) / TZ;
+	i = 0;
+	while (p[i])
+	{
+		j = 0;
+		while (p[i][j] != '\0')
+		{
+			if (on && p[i][j] == 'D')
+				p[i][j] = 'o';
+			else if (!on && p[i][j] == 'o'&& indexing(i, y, j, x))
+				p[i][j] = 'D';
+			j++;
+		}
+		i++;
+	}
 }
