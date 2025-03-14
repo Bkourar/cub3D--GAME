@@ -9,6 +9,29 @@
 # include "../../MLX42/include/MLX42/MLX42.h"
 # include "../Parse/get_next_line/get_next_line.h"
 # include "raycast_bonus.h"
+#define scal 0.25
+typedef struct s_cordinates
+{
+	int	x;
+	int	y;
+}	t_cordinates;
+
+
+typedef struct s_utils
+{
+	double	top_x;
+	double	top_y;
+	double	left_x;
+	double	left_y;
+	double	right_x;
+	double	right_y;
+	int		dx;
+	int		dy;
+	int		sx;
+	int		sy;
+	int		err;
+	int		e2;
+}	t_utils;
 
 typedef struct	s_map
 {
@@ -64,6 +87,7 @@ char	*ft_skip_spaces(char *s);
 char	*ft_re_alloc(char *buffer);
 int		ft_cheek_fd(int ac , char **av);
 char	*ft_re_alloc(char *buffer);
+void	draw_mini_map(t_inf *s);
 
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:29:02 by bikourar          #+#    #+#             */
-/*   Updated: 2025/03/13 22:28:03 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/13 23:49:50 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct	s_information
 	char			**plan;		//map input
 	mlx_t			*mlx;
 	mlx_image_t		*im;		//images
+	int				wid;
 	mlx_texture_t	*text;		// texture loading
 	mlx_texture_t	*t_sprit;		// texture loading
 	t_txt			load_i;		//texture paramter

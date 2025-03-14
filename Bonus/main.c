@@ -9,7 +9,7 @@ static void	init_parameter(t_inf *mx, t_buff *mem)
 	mx->load_i.frame1 = mlx_load_png("Bonus/Images/weapon_1.png");
 	mx->load_i.frame2 = mlx_load_png("Bonus/Images/weapon_3.png");
 	if (!mx->load_i.frame1 || !mx->load_i.frame2)
-		puts("falied"), exit(1);
+		return (ft_error("Error\nfailed to png\n", NULL, NULL));
 	mx->load_i.text_n = mem->no_tex;
 	mx->load_i.text_s = mem->so_tex;
 	mx->load_i.text_w = mem->we_tex;

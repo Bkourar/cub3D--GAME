@@ -1,4 +1,5 @@
 #include "../Includs/raycast_bonus.h"
+#include "../Includs/parse_bonus.h"
 
 void	rendereding_sprit(t_inf *s)
 {
@@ -95,5 +96,6 @@ void	rendering(void *arg)
 		rendereding_floor(s, i ,&j);
 		i++;
 	}
+	draw_mini_map(s);
 	rendereding_sprit(s);
 }
