@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util4.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:46:52 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 18:18:33 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/15 12:37:37 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ void	ft_free_list(t_map *tmp)
 	}
 }
 
-void ft_free_textures(t_buff *mem)
+void	ft_free_textures(t_buff *mem)
 {
 	if (mem->no[0] != 0)
-		free (mem->NO);
+		free (mem->no_tt);
 	if (mem->so[0] != 0)
-		free (mem->SO);
+		free (mem->so_tt);
 	if (mem->we[0] != 0)
-		free (mem->WE);
+		free (mem->we_tt);
 	if (mem->ea[0] != 0)
-		free (mem->EA);
+		free (mem->ea_tt);
 	if (mem->c[0] != 0)
 		free (mem->celling);
 	if (mem->f[0] != 0)

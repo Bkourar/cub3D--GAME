@@ -23,9 +23,10 @@ bool	rot_left(t_inf *s)
 
 static void	moveing(t_inf *s, bool mv)
 {
-	if (mlx_is_key_down(s->mlx, MLX_KEY_RIGHT))
+	ft_get_mouse_mv(s, mv);
+	if (mlx_is_key_down(s->mlx, MLX_KEY_RIGHT) || mlx_is_mouse_down(s->mlx, MLX_MOUSE_BUTTON_RIGHT))
 		mv = rot_right(s);
-	if (mlx_is_key_down(s->mlx, MLX_KEY_LEFT))
+	if (mlx_is_key_down(s->mlx, MLX_KEY_LEFT) || mlx_is_mouse_down(s->mlx, MLX_MOUSE_BUTTON_LEFT))
 		mv = rot_left(s);
 	if (mlx_is_key_down(s->mlx, MLX_KEY_W))
 		mv = up(s);
@@ -40,7 +41,7 @@ static void	moveing(t_inf *s, bool mv)
 	else if (s->sprit_on == true)
 		off_on(&s->sprit_on, false);
 	if (mlx_is_key_down(s->mlx, MLX_KEY_ESCAPE))
-		exit(1);
+		(mlx_terminate(s->mlx), deep_free(s), exit(1));
 	if (mlx_is_key_down(s->mlx, MLX_KEY_E) && s->is_door == false)
 		(off_on(&s->is_door, true), switch_map(&s->plan, true, s->pl));
 	if(mlx_is_key_down(s->mlx, MLX_KEY_R) && s->is_door == true)

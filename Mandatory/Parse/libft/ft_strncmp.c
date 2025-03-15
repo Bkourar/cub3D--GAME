@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/14 22:26:00 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/15 01:10:54 by eenassir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../Includs/parse.h"
 
-
-int ft_strncmp(char *s1, char *s2, int n)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (s1[i] && s1[i] != ' '&& s1[i] == s2[i] && i < n)
+	while (s1[i] && s1[i] != ' ' && s1[i] == s2[i] && i < n)
 		i++;
 	return (s1[i] - s2[i]);
 }

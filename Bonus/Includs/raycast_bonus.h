@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:29:02 by bikourar          #+#    #+#             */
-/*   Updated: 2025/03/14 17:29:51 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:58:55 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,42 @@ typedef struct s_txt
 	t_crd			c;
 }					t_txt;
 
+typedef struct s_buff
+{
+	char			**array;
+	int				count;
+	int				array_w;
+	int				array_h;
+	int				no[2];
+	int				so[2];
+	int				we[2];
+	int				ea[2];
+	int				c[2];
+	int				f[2];
+	char			*no_tt;
+	char			*so_tt;
+	char			*we_tt;
+	char			*ea_tt;
+	char			*celling;
+	char			*floor_c;
+	uint32_t		cell;
+	uint32_t		floo;
+	mlx_texture_t	*no_tex;
+	mlx_texture_t	*so_tex;
+	mlx_texture_t	*we_tex;
+	mlx_texture_t	*ea_tex;
+	mlx_texture_t	*weapon1;
+	mlx_texture_t	*weapon2;
+	mlx_texture_t	*door;
+	int				playerx;
+	int				playery;
+	double			player_deg;
+
+}					t_buff;
+
 typedef struct	s_information
 {
+	int				wid;
 	int				w_w;		//width
 	int				h_h;		//highet
 	char			**plan;		//map input
@@ -86,6 +120,7 @@ typedef struct	s_information
 	t_rys			ra[WIDTH];	//rays array
 	bool			sprit_on;	//action active
 	bool			is_door;
+	t_buff			*mem;
 }					t_inf;
 
 void			run(void *arg);
@@ -107,5 +142,10 @@ uint32_t		get_color(uint32_t color);
 mlx_texture_t	*get_frame(t_inf *s);
 void			switch_map(char ***arr, bool on, t_ply c);
 bool			indexing(int y1, int y2, int x1, int x2);
+void			ft_get_mouse_mv(t_inf *s, bool mv);
+bool			rot_right(t_inf *s);
+bool			rot_left(t_inf *s);
+void			free_struct(t_inf *s);
+void			deep_free(t_inf *s);
 
 #endif

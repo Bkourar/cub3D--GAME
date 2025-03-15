@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   util1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:23:03 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/13 11:06:50 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/15 11:50:23 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includs/raycast_bonus.h"
 #include "../../Includs/parse_bonus.h"
+#include "../../Includs/raycast_bonus.h"
 
 char	*ft_strdup_p(char *s)
 {
@@ -45,7 +45,7 @@ char	*ft_strjoin_m(char *s1, int add)
 	some = 0;
 	if (add == 0 || s1 == NULL)
 		return (NULL);
-	some = ft_strlen(s1) + add;
+	some = (int)ft_strlen(s1) + add;
 	p = (char *)malloc(some + 1);
 	if (!p)
 		return (free (s1), NULL);

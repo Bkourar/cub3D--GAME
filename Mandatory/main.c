@@ -14,20 +14,16 @@ static void	init_parameter(t_inf *mx, t_buff *mem)
 	mx->load_i.floor = mem->floo;
 	mx->h_h = mem->array_h * TZ;
 	mx->w_w = mem->array_w * TZ;
-	mx->pl.p.x = (mem->playerX * TZ) + (TZ / 2);
-	mx->pl.p.y = (mem->playerY * TZ) + (TZ / 2);
+	mx->pl.p.x = (mem->playerx * TZ) + (TZ / 2);
+	mx->pl.p.y = (mem->playery * TZ) + (TZ / 2);
 	mx->pl.rot = mem->player_deg;
 }
 
 static void	destroy_parameter(t_inf mx, t_buff *mem)
 {
-	int	i;
 	(void)mem;
-
-	i = -1;
-	while (++i < mx.h_h / TZ)
-		free(*(mx.plan + i));
-	free(mx.plan);
+	mlx_terminate(mx.mlx);
+	ft_free_mx(&mx);
 }
 
 static void	start_game(t_inf mx, t_buff *mem)
@@ -39,14 +35,14 @@ static void	start_game(t_inf mx, t_buff *mem)
 	destroy_parameter(mx, mem);
 }
 
-// void fe()
-// {
-// 	system("leaks cub3D");
-// }
+void fe()
+{
+	system("leaks cub3D");
+}
 
 int main(int ac, char **av)
 {
-	// atexit(fe);
+	atexit(fe);
 	t_inf	mx;
 	t_buff *mem;
 
@@ -56,6 +52,7 @@ int main(int ac, char **av)
 	if (get_map_mem(&mx, mem))
 		return (1);
 	get_player_pos(&mx, mem);
-	init_parameter(&mx, mem);
+	mx.mem = mem;
+	init_parameter(&mx, mx.mem);
 	start_game(mx, mem);
 }

@@ -39,8 +39,6 @@ mlx_texture_t	*get_texture(t_inf *s, int i)
 	int j = s->ra[i].r.x / TZ;
 	if (s->plan[x][j] == 'D' && !s->is_door)
 		return (s->load_i.door);
-	if (!s->is_door && s->ra[i].stat)
-		return (s->load_i.door);
 	else if (s->ra[i].sens && gtd_hor(s->ra[i].rot) == NORTH)
 		return(s->load_i.text_n);
 	else if (s->ra[i].sens && gtd_hor(s->ra[i].rot) == SOUTH)

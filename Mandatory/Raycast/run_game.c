@@ -33,7 +33,11 @@ static void	moveing(t_inf *s)
 	if (mlx_is_key_down(s->mlx, MLX_KEY_A))
 		mv = left(s);
 	if (mlx_is_key_down(s->mlx, MLX_KEY_ESCAPE))
+	{
+		mlx_terminate(s->mlx);
+		ft_free_mx(s);
 		exit(1);
+	}
 	if (mv)
 		raycasting(s);
 }

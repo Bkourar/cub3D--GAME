@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:29:02 by bikourar          #+#    #+#             */
-/*   Updated: 2025/03/13 10:46:07 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:03:31 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <limits.h>
 # include <math.h>
 # include <fcntl.h>
-# include "../MLX42/include/MLX42/MLX42.h"
+# include "../../MLX42/include/MLX42/MLX42.h"
 # include <unistd.h>
 
 # define WIDTH 1920
@@ -65,6 +65,36 @@ typedef struct s_txt
 	mlx_texture_t	*text_e;
 }					t_txt;
 
+typedef struct s_buff
+{
+	char			**array;
+	int				count;
+	int				array_w;
+	int				array_h;
+	int				no[2];
+	int				so[2];
+	int				we[2];
+	int				ea[2];
+	int				c[2];
+	int				f[2];
+	char			*no_tt;
+	char			*so_tt;
+	char			*we_tt;
+	char			*ea_tt;
+	char			*celling;
+	char			*floor_c;
+	uint32_t		cell;
+	uint32_t		floo;
+	mlx_texture_t	*no_tex;
+	mlx_texture_t	*so_tex;
+	mlx_texture_t	*we_tex;
+	mlx_texture_t	*ea_tex;
+	int				playerx;
+	int				playery;
+	double			player_deg;
+
+}					t_buff;
+
 typedef struct	s_information
 {
 	int				w_w;		//width
@@ -76,6 +106,7 @@ typedef struct	s_information
 	t_txt			load_i;		//texture paramter
 	t_ply			pl;			//player paramter
 	t_rys			ra[WIDTH];	//rays array
+	t_buff			*mem;
 }					t_inf;
 
 void			run(void *arg);
@@ -94,5 +125,6 @@ bool			left(t_inf *s);
 bool			down(t_inf *s);
 bool			up(t_inf *s);
 uint32_t		get_color(uint32_t color);
+void			ft_free_mx(t_inf *s);
 
 #endif

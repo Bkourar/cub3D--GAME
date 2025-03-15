@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_free_mx.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 22:26:00 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/15 11:53:25 by eenassir         ###   ########.fr       */
+/*   Created: 2025/03/15 15:01:11 by eenassir          #+#    #+#             */
+/*   Updated: 2025/03/15 15:02:28 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includs/parse_bonus.h"
+#include "../Includs/raycast.h"
 
-int	ft_strncmp(char *s1, char *s2, int n)
+void ft_free_mx(t_inf *s)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (s1[i] && s1[i] != ' ' && s1[i] == s2[i] && i < n)
+	while (s->mem->array[i])
+	{
+		free (s->mem->array[i]);
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	free(s->mem->array);
+	mlx_delete_texture(s->mem->no_tex);
+	mlx_delete_texture(s->mem->so_tex);
+	mlx_delete_texture(s->mem->we_tex);
+	mlx_delete_texture(s->mem->ea_tex);
+	i = 0;
+	while (s->plan[i])
+	{
+		free (s->plan[i]);
+		i++;
+	}
+	free(s->plan);
+	free (s->mem);
 }

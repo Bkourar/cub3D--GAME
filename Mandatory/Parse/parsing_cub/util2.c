@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   util2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bikourar <bikourar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:39:02 by eenassir          #+#    #+#             */
-/*   Updated: 2025/03/12 18:19:00 by bikourar         ###   ########.fr       */
+/*   Updated: 2025/03/15 14:04:56 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../../Includs/parse.h"
 #include "../../Includs/raycast.h"
@@ -29,7 +28,8 @@ char	*ft_strdup_1(char *s, t_buff *mem)
 	{
 		if (s[i] == ' ')
 			p[i] = '1';
-		if (s[i] == '0' || s[i] == '1' || s[i] == 'E' || s[i] == 'W' || s[i] == 'N' || s[i] == 'S')
+		if (s[i] == '0' || s[i] == '1' || s[i] == 'E' \
+		|| s[i] == 'W' || s[i] == 'N' || s[i] == 'S')
 			p[i] = s[i];
 		i++;
 	}
@@ -41,14 +41,14 @@ char	*ft_strdup_1(char *s, t_buff *mem)
 static void	set_data(double ang, int y, int x, t_buff *inf)
 {
 	inf->player_deg = ang;
-	inf->playerY = y;
-	inf->playerX = x;
+	inf->playery = y;
+	inf->playerx = x;
 }
 
 void	get_player_pos(t_inf *mx, t_buff *inf)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
